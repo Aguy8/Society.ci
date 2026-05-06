@@ -1,9 +1,24 @@
+import { useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import Nav from '../components/Nav.jsx'
 import Footer from '../components/Footer.jsx'
 import Icon from '../components/Icon.jsx'
 
+const MODULES = [
+  'Gestion communautaire',
+  'Monétisation',
+  'Mise en relation',
+  'Visibilité & Impact',
+  'Espace Leader',
+]
+
 export default function Fonctionnalites() {
+  const refs = [useRef(), useRef(), useRef(), useRef(), useRef()]
+
+  function scrollTo(i) {
+    refs[i].current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   return (
     <div className="page">
       <Nav />
@@ -23,17 +38,18 @@ export default function Fonctionnalites() {
             </p>
           </div>
           <div style={{ display: 'flex', gap: 8, marginTop: 56, flexWrap: 'wrap' }}>
-            {['Gestion communautaire', 'Monétisation', 'Mise en relation', 'Visibilité & Impact', 'Espace Leader'].map((m, i) => (
-              <a key={i} href={`#m${i + 1}`} style={{ padding: '12px 20px', background: i === 0 ? '#0a0a0a' : 'white', color: i === 0 ? 'white' : '#0a0a0a', borderRadius: 999, fontSize: 14, fontWeight: 600, textDecoration: 'none', border: '1px solid #E5E5E5' }}>
-                <span style={{ color: i === 0 ? '#D4A75B' : '#0E47AB', marginRight: 8 }}>{`0${i + 1}`}</span>{m}
-              </a>
+            {MODULES.map((m, i) => (
+              <button key={i} onClick={() => scrollTo(i)}
+                style={{ padding: '12px 20px', background: 'white', color: '#0a0a0a', borderRadius: 999, fontSize: 14, fontWeight: 600, border: '1px solid #E5E5E5', cursor: 'pointer', fontFamily: 'inherit' }}>
+                <span style={{ color: '#0E47AB', marginRight: 8 }}>{`0${i + 1}`}</span>{m}
+              </button>
             ))}
           </div>
         </div>
       </section>
 
       {/* MODULE 1 */}
-      <section id="m1" style={{ padding: '120px 64px' }}>
+      <section ref={refs[0]} style={{ padding: '120px 64px', scrollMarginTop: 80 }}>
         <div className="container">
           <div className="two-col-grid">
             <div>
@@ -50,9 +66,9 @@ export default function Fonctionnalites() {
                   ['Base de données vivante', 'Profils complets, segmentation, historique des cotisations, niveau d\'implication.'],
                   ['Communication ciblée', 'Canaux par sous-groupes, comités, thématiques — sans pollution de groupe.'],
                   ['Gestion des événements', 'Création, invitations, suivi des présences, bilans post-événement.'],
-                  ['Pilotage de projets', 'Planification, suivi, archivage, mise en valeur des initiatives.'],
+                  ['Pilotage de projets', 'Planification, suivi des tâches, archivage, valorisation des initiatives.'],
                   ['Tableau de bord d\'impact', 'Membres actifs, taux de participation, projets réalisés, fonds collectés.'],
-                  ['Rôles et permissions', 'Administrateur, modérateur, membre, bénévole — granulaire.'],
+                  ['Rôles et permissions', 'Administrateur, modérateur, trésorier, bénévole, membre — granulaires.'],
                 ].map((f, i) => (
                   <div key={i} style={{ padding: '20px 0', borderBottom: '1px solid #E5E5E5', display: 'grid', gridTemplateColumns: '40px 1fr', gap: 16, alignItems: 'flex-start' }}>
                     <div style={{ width: 36, height: 36, borderRadius: 10, background: '#E8EFFC', display: 'grid', placeItems: 'center' }}>
@@ -67,7 +83,6 @@ export default function Fonctionnalites() {
               </div>
             </div>
 
-            {/* Dashboard mockup */}
             <div style={{ background: '#F2F2F2', borderRadius: 32, padding: 32, position: 'relative', minHeight: 600, overflow: 'hidden' }}>
               <div style={{ background: 'white', borderRadius: 20, padding: 28, boxShadow: '0 20px 60px rgba(0,0,0,0.08)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
@@ -120,7 +135,7 @@ export default function Fonctionnalites() {
       </section>
 
       {/* MODULE 2 */}
-      <section id="m2" style={{ padding: '120px 64px', background: '#0a0a0a', color: 'white' }}>
+      <section ref={refs[1]} style={{ padding: '120px 64px', background: '#0a0a0a', color: 'white', scrollMarginTop: 80 }}>
         <div className="container">
           <div className="two-col-grid">
             <div style={{ order: 2 }}>
@@ -130,16 +145,26 @@ export default function Fonctionnalites() {
               </div>
               <h2 style={{ fontSize: 72, color: 'white' }}>Monétisation & financement.</h2>
               <p style={{ fontSize: 18, marginTop: 24, maxWidth: 520, color: 'rgba(255,255,255,0.7)' }}>
-                Transformer l'énergie communautaire en flux financiers structurés, traçables et sécurisés.
+                Transformer l'énergie communautaire en flux financiers structurés, traçables et sécurisés. Aucune carte bancaire requise pour vos membres.
               </p>
               <div style={{ marginTop: 40, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-                {['Cagnottes en 3 clics', 'Cotisations automatiques', 'Crowdfunding participatif', 'Billetterie + QR codes', 'Abonnements premium', 'Reporting financier'].map((f, i) => (
-                  <div key={i} style={{ padding: '16px 20px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 14, fontSize: 15, fontWeight: 600 }}>{f}</div>
+                {[
+                  ['Cagnottes en 3 clics', 'Lancez une collecte en moins de 2 minutes. Lien partageable, suivi en temps réel.'],
+                  ['Cotisations automatiques', 'Relances, rappels, historique — plus aucun conflit de trésorerie.'],
+                  ['Crowdfunding participatif', 'Projets à financer avec objectif, durée, paliers de récompenses.'],
+                  ['Billetterie + QR codes', 'Événements physiques ou virtuels, vente de billets, vérification à l\'entrée.'],
+                  ['Abonnements premium', 'Contenus exclusifs, accès VIP, espaces membres payants.'],
+                  ['Reporting financier', 'Exports comptables, reçus automatiques, transparence totale pour les bailleurs.'],
+                ].map(([titre, desc], i) => (
+                  <div key={i} style={{ padding: '16px 20px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 14 }}>
+                    <div style={{ fontSize: 14, fontWeight: 700 }}>{titre}</div>
+                    <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', marginTop: 6, lineHeight: 1.5 }}>{desc}</div>
+                  </div>
                 ))}
               </div>
               <div style={{ marginTop: 28, display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
                 <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)' }}>Compatible :</span>
-                {['Orange Money', 'Wave', 'MTN MoMo', 'Flooz'].map(p => (
+                {['Orange Money', 'Wave', 'MTN MoMo', 'Flooz', 'Visa/MC'].map(p => (
                   <span key={p} style={{ padding: '6px 12px', background: 'rgba(255,255,255,0.08)', borderRadius: 8, fontSize: 12, fontWeight: 600 }}>{p}</span>
                 ))}
               </div>
@@ -162,73 +187,232 @@ export default function Fonctionnalites() {
                 <div style={{ height: 8, background: '#F2F2F2', borderRadius: 999, marginTop: 8, overflow: 'hidden' }}>
                   <div style={{ width: '72%', height: '100%', background: 'linear-gradient(90deg, #0E47AB, #084CC2)' }} />
                 </div>
-                <button style={{ marginTop: 20, width: '100%', padding: 14, background: '#0E47AB', color: 'white', border: 'none', borderRadius: 12, fontSize: 14, fontWeight: 700, cursor: 'pointer' }}>Faire un don</button>
+                <div style={{ marginTop: 20, display: 'grid', gap: 8 }}>
+                  {[
+                    { n: 'Kofi A.', m: '25 000 FCFA', img: 'p_aw_hom_2.jpg' },
+                    { n: 'Mariame S.', m: '50 000 FCFA', img: 'p_aw_fem_2.jpg' },
+                    { n: 'Ibrahim D.', m: '10 000 FCFA', img: 'p_aw_hom_4.jpg' },
+                  ].map((d, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 0', borderTop: '1px solid #F2F2F2' }}>
+                      <div style={{ width: 32, height: 32, borderRadius: '50%', backgroundImage: `url(/assets/${d.img})`, backgroundSize: 'cover', flexShrink: 0 }} />
+                      <div style={{ flex: 1, fontSize: 13, fontWeight: 600 }}>{d.n}</div>
+                      <div style={{ fontSize: 13, fontWeight: 700, color: '#0E47AB' }}>{d.m}</div>
+                    </div>
+                  ))}
+                </div>
+                <button style={{ marginTop: 16, width: '100%', padding: 14, background: '#0E47AB', color: 'white', border: 'none', borderRadius: 12, fontSize: 14, fontWeight: 700, cursor: 'pointer' }}>Faire un don</button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* MODULES 3-5 */}
-      <section style={{ padding: '120px 64px' }}>
-        <div className="container" style={{ display: 'grid', gap: 24 }}>
-          <div id="m3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, padding: 48, background: '#F8F8F8', borderRadius: 32, alignItems: 'center' }}>
+      {/* MODULE 3 */}
+      <section ref={refs[2]} style={{ padding: '120px 64px', scrollMarginTop: 80 }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
             <div>
-              <div style={{ padding: '6px 14px', background: '#0E47AB', color: 'white', borderRadius: 999, fontSize: 13, fontWeight: 700, display: 'inline-block' }}>MODULE 03</div>
-              <h3 style={{ fontSize: 48, marginTop: 12 }}>Mise en relation intelligente.</h3>
-              <p style={{ fontSize: 16, marginTop: 12 }}>L'algorithme qui connecte besoins et ressources : compétences, profils disponibles, partenariats RSE.</p>
-              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 20 }}>
-                {['Matching besoins/ressources', 'Annuaire interactif', 'Co-projets', 'Connexion RSE'].map(t => (
-                  <span key={t} style={{ padding: '8px 14px', background: 'white', borderRadius: 999, fontSize: 13, fontWeight: 500 }}>{t}</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
+                <div style={{ padding: '6px 14px', background: '#0E47AB', color: 'white', borderRadius: 999, fontSize: 13, fontWeight: 700 }}>MODULE 03</div>
+                <div style={{ height: 1, flex: 1, background: '#E5E5E5' }} />
+              </div>
+              <h2 style={{ fontSize: 72 }}>Mise en relation intelligente.</h2>
+              <p style={{ fontSize: 18, marginTop: 24, maxWidth: 520 }}>
+                L'algorithme qui connecte besoins et ressources entre communautés. Compétences, bénévoles, partenariats RSE, mentors — en quelques clics.
+              </p>
+              <div style={{ marginTop: 40, display: 'grid', gap: 4 }}>
+                {[
+                  ['Matching besoins/ressources', 'Publiez un besoin — l\'algorithme trouve les meilleurs profils dans tout le réseau Society.'],
+                  ['Annuaire des compétences', 'Chaque membre expose ses expertises. Retrouvez le bon profil en secondes.'],
+                  ['Co-projets inter-communautés', 'Collaborez avec d\'autres organisations sur des projets communs.'],
+                  ['Connexions RSE', 'Mettez en relation entreprises cherchant à investir en RSE et communautés à impact.'],
+                  ['Programme de mentorat', 'Alumni, seniors, experts — connectez les générations de façon structurée.'],
+                ].map(([titre, desc], i) => (
+                  <div key={i} style={{ padding: '20px 0', borderBottom: '1px solid #E5E5E5', display: 'grid', gridTemplateColumns: '40px 1fr', gap: 16 }}>
+                    <div style={{ width: 36, height: 36, borderRadius: 10, background: '#E8EFFC', display: 'grid', placeItems: 'center' }}>
+                      <Icon name="check" size={18} color="#0E47AB" />
+                    </div>
+                    <div>
+                      <div style={{ fontWeight: 700, fontSize: 16 }}>{titre}</div>
+                      <div style={{ color: '#6B6B6B', fontSize: 14, marginTop: 4 }}>{desc}</div>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
-            <div style={{ padding: 32, background: 'white', borderRadius: 20, boxShadow: '0 10px 40px rgba(0,0,0,0.06)' }}>
-              <div style={{ fontSize: 11, color: '#6B6B6B', fontWeight: 600 }}>BESOIN</div>
-              <div style={{ fontSize: 15, fontWeight: 700, marginTop: 4 }}>Développeur web bénévole</div>
-              <div style={{ fontSize: 12, color: '#0E47AB', marginTop: 2 }}>ONG Hope Life CI</div>
-              <div style={{ margin: '16px 0', padding: '12px 20px', background: '#0E47AB', color: 'white', borderRadius: 999, textAlign: 'center', fontSize: 14, fontWeight: 700 }}>
-                <Icon name="spark" size={14} color="#D4A75B" /> 96 % de match
-              </div>
-              <div style={{ fontSize: 11, color: '#6B6B6B', fontWeight: 600 }}>RESSOURCE TROUVÉE</div>
-              <div style={{ fontSize: 15, fontWeight: 700, marginTop: 4 }}>Mamadou T.</div>
-              <div style={{ fontSize: 12, color: '#0E47AB', marginTop: 2 }}>JCI Abidjan · React/Node</div>
-            </div>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
-            <div id="m4" style={{ padding: 48, background: '#0E47AB', color: 'white', borderRadius: 32 }}>
-              <div style={{ padding: '6px 14px', background: 'rgba(255,255,255,0.15)', borderRadius: 999, fontSize: 13, fontWeight: 700, display: 'inline-block' }}>MODULE 04</div>
-              <h3 style={{ fontSize: 44, marginTop: 12, color: 'white' }}>Visibilité & Impact.</h3>
-              <p style={{ fontSize: 15, marginTop: 10, color: 'rgba(255,255,255,0.85)' }}>Pages publiques, rapports automatisés, valorisation RSE.</p>
-              <div style={{ marginTop: 28, padding: 24, background: 'rgba(255,255,255,0.1)', borderRadius: 20 }}>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', fontWeight: 600 }}>RAPPORT D'IMPACT — Q3 2026</div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 16 }}>
-                  {[['14 290', 'bénéficiaires touchés'], ['8', 'projets réalisés'], ['62 M', 'FCFA collectés'], ['1 248', 'membres actifs']].map(([v, l], i) => (
-                    <div key={i}>
-                      <div style={{ fontSize: 28, fontWeight: 800, color: '#D4A75B' }}>{v}</div>
-                      <div style={{ fontSize: 12, opacity: 0.8 }}>{l}</div>
-                    </div>
+            <div style={{ background: '#F8F8F8', borderRadius: 32, padding: 40 }}>
+              <div style={{ fontSize: 12, fontWeight: 700, color: '#6B6B6B', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 20 }}>Mise en relation en cours</div>
+              <div style={{ background: 'white', borderRadius: 20, padding: 24, boxShadow: '0 10px 40px rgba(0,0,0,0.06)', marginBottom: 16 }}>
+                <div style={{ fontSize: 11, color: '#C23B5A', fontWeight: 700, textTransform: 'uppercase' }}>Besoin</div>
+                <div style={{ fontSize: 16, fontWeight: 700, marginTop: 4 }}>Développeur web bénévole</div>
+                <div style={{ fontSize: 13, color: '#6B6B6B', marginTop: 2 }}>ONG Hope Life CI · Abidjan</div>
+                <div style={{ display: 'flex', gap: 6, marginTop: 12, flexWrap: 'wrap' }}>
+                  {['React', 'Node.js', 'Bénévole', 'Urgent'].map(t => (
+                    <span key={t} style={{ padding: '4px 10px', background: '#F2F2F2', borderRadius: 999, fontSize: 11, fontWeight: 600 }}>{t}</span>
                   ))}
                 </div>
               </div>
-            </div>
-            <div id="m5" style={{ padding: 48, background: 'linear-gradient(135deg, #FFD9DE, #E0D6FF)', borderRadius: 32 }}>
-              <div style={{ padding: '6px 14px', background: 'rgba(255,255,255,0.6)', borderRadius: 999, fontSize: 13, fontWeight: 700, display: 'inline-block' }}>MODULE 05</div>
-              <h3 style={{ fontSize: 44, marginTop: 12 }}>Espace Leader & Influenceur.</h3>
-              <p style={{ fontSize: 15, marginTop: 10 }}>Transformer une audience en communauté structurée, engagée et monétisable.</p>
-              <div style={{ marginTop: 28, padding: 20, background: 'white', borderRadius: 20, display: 'flex', alignItems: 'center', gap: 16 }}>
-                <img src="/assets/p_aw_fem_5.jpg" style={{ width: 52, height: 52, borderRadius: '50%', objectFit: 'cover' }} alt="" />
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontWeight: 800, fontSize: 16 }}>Aïssatou D.</div>
-                  <div style={{ fontSize: 13, color: '#6B6B6B' }}>4 200 fans · Espace privé</div>
+              <div style={{ display: 'flex', justifyContent: 'center', margin: '16px 0' }}>
+                <div style={{ padding: '10px 24px', background: '#0E47AB', color: 'white', borderRadius: 999, fontSize: 14, fontWeight: 700 }}>
+                  ⚡ 96 % de compatibilité
                 </div>
-                <div style={{ padding: '6px 12px', background: '#0a0a0a', color: 'white', borderRadius: 999, fontSize: 12, fontWeight: 700 }}>VIP</div>
               </div>
-              <div style={{ marginTop: 12, padding: 20, background: 'white', borderRadius: 20 }}>
-                <div style={{ fontSize: 11, color: '#6B6B6B', fontWeight: 600 }}>REVENUS DU MOIS</div>
-                <div style={{ fontSize: 28, fontWeight: 800, letterSpacing: '-0.03em', marginTop: 4 }}>1 240 000 <span style={{ fontSize: 13, color: '#6B6B6B' }}>FCFA</span></div>
-                <div style={{ fontSize: 12, color: '#0F8B4F', fontWeight: 600 }}>↑ 32 % vs mois dernier</div>
+              <div style={{ background: 'white', borderRadius: 20, padding: 24, boxShadow: '0 10px 40px rgba(0,0,0,0.06)' }}>
+                <div style={{ fontSize: 11, color: '#0F8B4F', fontWeight: 700, textTransform: 'uppercase' }}>Profil trouvé</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 10 }}>
+                  <div style={{ width: 44, height: 44, borderRadius: '50%', backgroundImage: 'url(/assets/p_aw_hom_3.jpg)', backgroundSize: 'cover', flexShrink: 0 }} />
+                  <div>
+                    <div style={{ fontSize: 16, fontWeight: 700 }}>Mamadou T.</div>
+                    <div style={{ fontSize: 13, color: '#6B6B6B' }}>JCI Abidjan · React / Node.js</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MODULE 4 */}
+      <section ref={refs[3]} style={{ padding: '120px 64px', background: '#0E47AB', color: 'white', scrollMarginTop: 80 }}>
+        <div className="container">
+          <div className="two-col-grid">
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
+                <div style={{ padding: '6px 14px', background: 'rgba(255,255,255,0.2)', color: 'white', borderRadius: 999, fontSize: 13, fontWeight: 700 }}>MODULE 04</div>
+                <div style={{ height: 1, flex: 1, background: 'rgba(255,255,255,0.2)' }} />
+              </div>
+              <h2 style={{ fontSize: 72, color: 'white' }}>Visibilité & Impact.</h2>
+              <p style={{ fontSize: 18, marginTop: 24, maxWidth: 520, color: 'rgba(255,255,255,0.8)' }}>
+                Transformez chaque action en preuve. Pages publiques, rapports d'impact automatisés, valorisation RSE — pour convaincre les bailleurs et attirer les partenaires.
+              </p>
+              <div style={{ marginTop: 40, display: 'grid', gap: 4 }}>
+                {[
+                  ['Page d\'impact publique', 'Votre communauté visible sur le web, avec chiffres, projets, membres et témoignages.'],
+                  ['Rapports bailleurs automatisés', 'Générez un rapport PDF professionnel en 10 minutes plutôt qu\'en 3 semaines.'],
+                  ['Tableau de bord RSE', 'Indicateurs SDG, ODD, impact social mesurable — exactement ce qu\'exigent les financeurs.'],
+                  ['Médias & galerie de projets', 'Photos, vidéos, articles — archivez et mettez en valeur chaque réalisation.'],
+                  ['Certification Society Impact', 'Badge de confiance pour les communautés qui prouvent leur impact réel.'],
+                ].map(([titre, desc], i) => (
+                  <div key={i} style={{ padding: '18px 0', borderBottom: '1px solid rgba(255,255,255,0.1)', display: 'grid', gridTemplateColumns: '40px 1fr', gap: 16 }}>
+                    <div style={{ width: 36, height: 36, borderRadius: 10, background: 'rgba(255,255,255,0.12)', display: 'grid', placeItems: 'center' }}>
+                      <Icon name="check" size={18} color="#D4A75B" />
+                    </div>
+                    <div>
+                      <div style={{ fontWeight: 700, fontSize: 16 }}>{titre}</div>
+                      <div style={{ color: 'rgba(255,255,255,0.65)', fontSize: 14, marginTop: 4 }}>{desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div style={{ padding: 40, background: 'rgba(255,255,255,0.08)', borderRadius: 32, backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.15)' }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>RAPPORT D'IMPACT — Q3 2026</div>
+              <div style={{ fontSize: 22, fontWeight: 800, marginTop: 8 }}>Cansein Fondation</div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 28 }}>
+                {[['14 290', 'bénéficiaires touchés'], ['8', 'projets réalisés'], ['62 M', 'FCFA collectés'], ['1 248', 'membres actifs']].map(([v, l], i) => (
+                  <div key={i} style={{ padding: 20, background: 'rgba(255,255,255,0.08)', borderRadius: 16 }}>
+                    <div style={{ fontSize: 36, fontWeight: 800, color: '#D4A75B', letterSpacing: '-0.03em' }}>{v}</div>
+                    <div style={{ fontSize: 13, opacity: 0.8, marginTop: 4 }}>{l}</div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ marginTop: 20, padding: 20, background: 'rgba(255,255,255,0.08)', borderRadius: 16 }}>
+                <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', marginBottom: 12 }}>Alignement ODD</div>
+                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                  {['ODD 1 — Pas de pauvreté', 'ODD 4 — Éducation', 'ODD 8 — Emploi', 'ODD 17 — Partenariats'].map(odd => (
+                    <span key={odd} style={{ padding: '6px 12px', background: 'rgba(212,167,91,0.2)', border: '1px solid rgba(212,167,91,0.4)', borderRadius: 999, fontSize: 11, fontWeight: 600, color: '#D4A75B' }}>{odd}</span>
+                  ))}
+                </div>
+              </div>
+              <button style={{ marginTop: 20, width: '100%', padding: 14, background: '#D4A75B', color: '#0a0a0a', border: 'none', borderRadius: 12, fontSize: 14, fontWeight: 700, cursor: 'pointer' }}>
+                Télécharger le rapport PDF
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MODULE 5 */}
+      <section ref={refs[4]} style={{ padding: '120px 64px', scrollMarginTop: 80 }}>
+        <div className="container">
+          <div className="two-col-grid">
+            <div style={{ order: 2 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
+                <div style={{ padding: '6px 14px', background: 'linear-gradient(135deg, #FFD9DE, #C8B8FF)', color: '#0a0a0a', borderRadius: 999, fontSize: 13, fontWeight: 700 }}>MODULE 05</div>
+                <div style={{ height: 1, flex: 1, background: '#E5E5E5' }} />
+              </div>
+              <h2 style={{ fontSize: 72 }}>Espace Leader<br />& Influenceur.</h2>
+              <p style={{ fontSize: 18, marginTop: 24, maxWidth: 520 }}>
+                Transformez votre audience en communauté propriétaire. Monétisez sans dépendre d'Instagram ou TikTok. Votre algorithme, vos règles.
+              </p>
+              <div style={{ marginTop: 40, display: 'grid', gap: 4 }}>
+                {[
+                  ['Communauté propriétaire', 'Votre espace à vous — pas loué à Facebook ou TikTok. Aucune déplatformisation possible.'],
+                  ['Abonnements & contenus premium', 'Lives privés, articles exclusifs, accès VIP — monétisez votre expertise directement.'],
+                  ['Q&A & sessions live', 'Interactions directes avec vos fans, sessions dédiées, séances de coaching.'],
+                  ['Boutique de contenus', 'Vendez des formations, e-books, masterclasses depuis votre espace.'],
+                  ['Analytics audience avancés', 'Qui vous suit vraiment ? Taux d\'engagement, fidélité, profils démographiques.'],
+                  ['Independence algorithmique', 'Votre reach n\'est plus soumis aux caprices de Meta ou ByteDance.'],
+                ].map(([titre, desc], i) => (
+                  <div key={i} style={{ padding: '20px 0', borderBottom: '1px solid #E5E5E5', display: 'grid', gridTemplateColumns: '40px 1fr', gap: 16 }}>
+                    <div style={{ width: 36, height: 36, borderRadius: 10, background: 'linear-gradient(135deg, #FFD9DE, #E0D6FF)', display: 'grid', placeItems: 'center' }}>
+                      <Icon name="star" size={18} color="#5C2E91" />
+                    </div>
+                    <div>
+                      <div style={{ fontWeight: 700, fontSize: 16 }}>{titre}</div>
+                      <div style={{ color: '#6B6B6B', fontSize: 14, marginTop: 4 }}>{desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div style={{ order: 1, background: 'linear-gradient(135deg, #FFD9DE, #E0D6FF)', borderRadius: 32, padding: 40, position: 'relative', overflow: 'hidden' }}>
+              <div style={{ position: 'absolute', top: -40, right: -40, width: 200, height: 200, borderRadius: '50%', background: 'rgba(255,255,255,0.3)', filter: 'blur(40px)' }} />
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{ background: 'white', borderRadius: 20, padding: 24, marginBottom: 16, boxShadow: '0 10px 40px rgba(0,0,0,0.08)' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                    <img src="/assets/p_aw_fem_5.jpg" style={{ width: 52, height: 52, borderRadius: '50%', objectFit: 'cover' }} alt="" />
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontWeight: 800, fontSize: 16 }}>Aïssatou D.</div>
+                      <div style={{ fontSize: 13, color: '#6B6B6B' }}>Coach bien-être · Abidjan</div>
+                    </div>
+                    <div style={{ padding: '6px 12px', background: '#0a0a0a', color: 'white', borderRadius: 999, fontSize: 12, fontWeight: 700 }}>VIP</div>
+                  </div>
+                  <div style={{ marginTop: 16, display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
+                    {[['4 200', 'Fans'], ['1 400', 'Abonnés'], ['82 %', 'Rétention']].map(([v, l], i) => (
+                      <div key={i} style={{ padding: 12, background: '#F8F8F8', borderRadius: 12, textAlign: 'center' }}>
+                        <div style={{ fontWeight: 800, fontSize: 18, letterSpacing: '-0.02em' }}>{v}</div>
+                        <div style={{ fontSize: 11, color: '#6B6B6B', marginTop: 2 }}>{l}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div style={{ background: 'white', borderRadius: 20, padding: 24, marginBottom: 16, boxShadow: '0 10px 40px rgba(0,0,0,0.08)' }}>
+                  <div style={{ fontSize: 11, color: '#6B6B6B', fontWeight: 600 }}>REVENUS DU MOIS</div>
+                  <div style={{ fontSize: 36, fontWeight: 800, letterSpacing: '-0.03em', marginTop: 4 }}>1 240 000 <span style={{ fontSize: 14, color: '#6B6B6B' }}>FCFA</span></div>
+                  <div style={{ fontSize: 13, color: '#0F8B4F', fontWeight: 600, marginTop: 4 }}>↑ 32 % vs mois dernier</div>
+                  <div style={{ marginTop: 12, display: 'flex', alignItems: 'flex-end', gap: 3, height: 40 }}>
+                    {[30, 45, 38, 60, 55, 72, 65, 80, 75, 90].map((h, i) => (
+                      <div key={i} style={{ flex: 1, height: `${h}%`, background: i === 9 ? '#5C2E91' : '#E0D6FF', borderRadius: 3 }} />
+                    ))}
+                  </div>
+                </div>
+                <div style={{ background: 'white', borderRadius: 20, padding: 20, boxShadow: '0 10px 40px rgba(0,0,0,0.08)' }}>
+                  <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 12 }}>Contenu premium récent</div>
+                  {[
+                    { t: 'Masterclass bien-être — 3h', prix: '15 000 FCFA', v: '312 ventes' },
+                    { t: 'Q&A live mensuel', prix: 'Inclus VIP', v: '824 présents' },
+                  ].map((c, i) => (
+                    <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderTop: i ? '1px solid #F2F2F2' : 'none' }}>
+                      <div>
+                        <div style={{ fontSize: 13, fontWeight: 600 }}>{c.t}</div>
+                        <div style={{ fontSize: 11, color: '#6B6B6B' }}>{c.v}</div>
+                      </div>
+                      <div style={{ fontSize: 13, fontWeight: 700, color: '#5C2E91' }}>{c.prix}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -261,6 +445,7 @@ export default function Fonctionnalites() {
                   ['Billetterie + QR codes', 0, 1, 1, 2],
                   ["Rapports d'impact RSE", 0, 0, 0, 2],
                   ['Matching besoins/ressources', 0, 0, 0, 2],
+                  ['Espace Leader monétisé', 0, 1, 2, 2],
                   ['Prix adapté Afrique', 2, 2, 0, 2],
                   ['Multilinguisme local', 2, 1, 0, 2],
                 ].map((row, i) => (

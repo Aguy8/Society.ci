@@ -38,7 +38,7 @@ export default function Accueil() {
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginTop: 56, flexWrap: 'wrap' }}>
                 <div className="avatars">
-                  {['p_aw_fem_1.jpg', 'p_aw_hom_1.jpg', 'p_aw_fem_3.jpg', 'p_eu_1.jpg', 'p_aw_hom_2.jpg'].map(img => (
+                  {['p_aw_fem_1.jpg', 'p_aw_hom_1.jpg', 'p_aw_fem_3.jpg', 'p_aw_fem_4.jpg', 'p_aw_hom_2.jpg'].map(img => (
                     <div key={img} style={{ backgroundImage: `url(/assets/${img})` }} />
                   ))}
                 </div>
