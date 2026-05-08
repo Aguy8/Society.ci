@@ -3,7 +3,6 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - claude/build-website-mockup-6qb2Y
       - main
   workflow_dispatch:
 
@@ -35,7 +34,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_BASE_PATH: /Society.so/
+          VITE_BASE_PATH: /Society.ci/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
