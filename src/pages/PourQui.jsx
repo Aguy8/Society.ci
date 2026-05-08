@@ -13,11 +13,11 @@ export default function PourQui() {
         <div className="container">
           <span className="eyebrow">Pour qui ?</span>
           <h1 style={{ fontSize: 100, marginTop: 28, lineHeight: 0.9 }}>
-            Sept segments.<br />
-            <span style={{ color: '#0E47AB' }}>Une promesse</span>.
+            7 segments.<br />
+            <span style={{ color: '#0E47AB' }}>1 promesse</span>.
           </h1>
           <p style={{ fontSize: 20, marginTop: 32, maxWidth: 700, lineHeight: 1.5 }}>
-            Society s'adresse à toutes les communautés qui veulent passer du WhatsApp informel à une vraie infrastructure numérique.
+            Society s'adresse à toutes les communautés qui veulent passer d'une gestion manuelle laborieuse à une vraie infrastructure numérique.
           </p>
         </div>
       </section>

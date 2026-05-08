@@ -43,15 +43,15 @@ export default function MentionsLegales() {
               <div style={{ padding: '24px', background: '#F8F8F8', borderRadius: 16, marginBottom: 12 }}>
                 <div style={{ display: 'grid', gridTemplateColumns: '180px 1fr', gap: '10px 24px' }}>
                   {[
-                    ['Denomination sociale', 'Difero Fundry SARL'],
-                    ['Forme juridique', 'Societe a Responsabilite Limitee (SARL)'],
-                    ['Siege social', 'Immeuble CCIA, Avenue Marchand, Plateau, Abidjan — Cote d\'Ivoire'],
-                    ['RCCM', 'CI-ABJ-2025-B-12847'],
-                    ['Capital social', '5 000 000 FCFA'],
-                    ['NCC', '2025-CI-ABJ-00234'],
-                    ['Directeur de la publication', 'Mamadou Kouyate, Directeur General'],
+                    ['Denomination sociale', 'XXX'],
+                    ['Forme juridique', 'XXX'],
+                    ['Siege social', 'XXX'],
+                    ['RCCM', 'XXX'],
+                    ['Capital social', 'XXX'],
+                    ['NCC', 'XXX'],
+                    ['Directeur de la publication', 'XXX'],
                     ['E-mail', 'legal@society.ci'],
-                    ['Telephone', '+225 27 22 XX XX XX'],
+                    ['Telephone', 'XXX'],
                   ].map(([k, v]) => (
                     <Fragment key={k}>
                       <div style={{ fontSize: 13, fontWeight: 700, color: '#6B6B6B' }}>{k}</div>
@@ -67,10 +67,10 @@ export default function MentionsLegales() {
               <div style={{ padding: '24px', background: '#F8F8F8', borderRadius: 16, marginBottom: 12 }}>
                 <div style={{ display: 'grid', gridTemplateColumns: '180px 1fr', gap: '10px 24px' }}>
                   {[
-                    ['Hebergeur', 'AfricaCloud Infrastructure Ltd'],
-                    ['Adresse', 'Zone Industrielle de Yopougon, Abidjan, Cote d\'Ivoire'],
-                    ['Site web', 'www.africacloud.ci'],
-                    ['Telephone', '+225 27 XX XX XX XX'],
+                    ['Hebergeur', 'XXX'],
+                    ['Adresse', 'XXX'],
+                    ['Site web', 'XXX'],
+                    ['Telephone', 'XXX'],
                   ].map(([k, v]) => (
                     <Fragment key={k}>
                       <div style={{ fontSize: 13, fontWeight: 700, color: '#6B6B6B' }}>{k}</div>

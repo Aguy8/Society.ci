@@ -111,6 +111,15 @@ export default function EtudesDeCas() {
     <div className="page">
       <Nav />
 
+      <section style={{ padding: '20px 64px', background: '#FFF8E7', borderBottom: '2px solid #D4A75B' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+          <div style={{ width: 32, height: 32, borderRadius: '50%', background: '#D4A75B', display: 'grid', placeItems: 'center', flexShrink: 0, fontSize: 16, fontWeight: 800 }}>⚠</div>
+          <p style={{ fontSize: 14, color: '#6B4A00', fontWeight: 500, lineHeight: 1.5, margin: 0 }}>
+            <strong>Données de simulation :</strong> Les études de cas présentées sur cette page sont des simulations illustratives. Les noms, chiffres et résultats sont fictifs et servent uniquement à illustrer le potentiel de la plateforme Society. Ils ne constituent pas des témoignages réels.
+          </p>
+        </div>
+      </section>
+
       <section style={{ padding: '120px 64px 80px', background: '#0a0a0a', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: -80, right: 100, width: 400, height: 400, borderRadius: 999, background: '#0E47AB', opacity: 0.12 }} />
         <div style={{ position: 'absolute', bottom: -60, left: -40, width: 300, height: 300, borderRadius: 999, background: '#D4A75B', opacity: 0.08 }} />

@@ -146,22 +146,6 @@ export default function MiseEnRelation() {
         </div>
       </section>
 
-      {/* CHIFFRES */}
-      <section style={{ padding: '0' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }}>
-          {[
-            { n: '1 800+', l: 'Organisations sur Society' },
-            { n: '620', l: 'Collaborations initiées' },
-            { n: '3.2×', l: "Plus d'impact en réseau" },
-            { n: '8', l: 'Pays couverts en Afrique de l\'Ouest' },
-          ].map((s, i) => (
-            <div key={i} style={{ padding: '40px 28px', background: i % 2 === 0 ? '#0E47AB' : '#0a0a0a', textAlign: 'center', borderRight: '1px solid rgba(255,255,255,0.08)' }}>
-              <div style={{ fontSize: 48, fontWeight: 800, color: 'white', letterSpacing: '-0.04em', lineHeight: 1 }}>{s.n}</div>
-              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', marginTop: 8, lineHeight: 1.4 }}>{s.l}</div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* TYPES DE COLLABORATION */}
       <section style={{ padding: '100px 64px', background: '#F8F8F8' }}>
@@ -251,7 +235,7 @@ export default function MiseEnRelation() {
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
             <span className="eyebrow">Secteurs actifs</span>
-            <h2 style={{ fontSize: 52, marginTop: 20 }}>1 800+ organisations<br />prêtes à collaborer.</h2>
+            <h2 style={{ fontSize: 52, marginTop: 20 }}>Des organisations<br />prêtes à collaborer.</h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
             {SECTORS.map((sec, i) => (
@@ -300,7 +284,7 @@ export default function MiseEnRelation() {
               <span style={{ color: '#D4A75B' }}>changer la donne.</span>
             </h2>
             <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.7)', marginTop: 24, maxWidth: 480, margin: '24px auto 0', lineHeight: 1.6, position: 'relative' }}>
-              Inscrivez votre organisation sur Society et accédez immédiatement au réseau de 1 800+ communautés africaines.
+              Inscrivez votre organisation sur Society et rejoignez le réseau des communautés africaines qui collaborent et s'entraident.
             </p>
             <div style={{ display: 'flex', gap: 14, justifyContent: 'center', marginTop: 44, flexWrap: 'wrap', position: 'relative' }}>
               <NavLink to="/inscription" className="btn btn-gold btn-xl">

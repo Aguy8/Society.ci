@@ -130,7 +130,7 @@ export default function MobileApp() {
               </div>
               <div style={{ marginTop: 24, padding: '12px 18px', background: 'rgba(255,255,255,0.06)', borderRadius: 12, display: 'inline-flex', alignItems: 'center', gap: 10, border: '1px solid rgba(255,255,255,0.1)' }}>
                 <Icon name="calendar" size={15} color="#D4A75B" />
-                <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)' }}>Bientôt disponible · 2 000+ bêta-testeurs inscrits</span>
+                <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)' }}>Bientôt disponible</span>
               </div>
             </div>
 
@@ -150,22 +150,6 @@ export default function MobileApp() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section style={{ padding: '0', background: '#D4A75B' }}>
-        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
-          {[
-            { n: '4.8★', l: 'Note bêta-testeurs' },
-            { n: '2 000+', l: 'Inscrits bêta' },
-            { n: '< 2s', l: 'Temps de chargement' },
-            { n: '98%', l: 'Satisfaction globale' },
-          ].map((s, i) => (
-            <div key={i} style={{ padding: '32px 40px', textAlign: 'center', borderRight: i < 3 ? '1px solid rgba(0,0,0,0.1)' : 'none', flex: 1, minWidth: 150 }}>
-              <div style={{ fontSize: 40, fontWeight: 800, color: '#0a0a0a', letterSpacing: '-0.04em', lineHeight: 1 }}>{s.n}</div>
-              <div style={{ fontSize: 13, color: 'rgba(0,0,0,0.6)', marginTop: 6 }}>{s.l}</div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* ÉCRANS DÉTAILLÉS */}
       <section style={{ padding: '100px 64px', background: '#F8F8F8' }}>
@@ -254,7 +238,7 @@ export default function MobileApp() {
               <Icon name="arrow" size={16} color="#0a0a0a" />
             </button>
           </div>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', marginTop: 16 }}>2 000+ personnes déjà inscrites · Aucun spam</p>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', marginTop: 16 }}>Aucun spam · Désabonnement en un clic</p>
         </div>
       </section>
 

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Nav from '../components/Nav.jsx'
 import Footer from '../components/Footer.jsx'
@@ -16,9 +17,45 @@ const catBg = { Gestion: '#E8F0FD', Leadership: '#FDF6EC', Financement: '#E8F0FD
 const catText = { Gestion: '#0E47AB', Leadership: '#8B5E1A', Financement: '#0E47AB', Engagement: '#3A3A3A', Evenements: '#0E47AB', Impact: '#8B5E1A' }
 const catIcon = { Gestion: 'chart', Leadership: 'star', Financement: 'money', Engagement: 'heart', Evenements: 'calendar', Impact: 'target' }
 
+const FULL_CONTENT = {
+  1: `La gestion des cotisations reste le nerf de la guerre pour toute mutuelle africaine. Sans outil adapté, les relances sont manuelles, les impayés s'accumulent et la confiance entre membres s'érode.
+
+Les meilleures communautés d'Abidjan ont adopté trois pratiques clés : l'automatisation des rappels SMS 5 jours avant l'échéance, la visibilité en temps réel du solde de chaque membre, et un tableau de bord transparent accessible à tous.
+
+Résultat : jusqu'à 60 % de réduction des impayés en 3 mois. Society intègre ces fonctionnalités nativement — aucun développement requis, activation en quelques clics.`,
+  2: `Le profil du leader communautaire africain a profondément évolué en 10 ans. La maîtrise des outils digitaux est devenue aussi importante que le charisme ou l'ancienneté.
+
+Les 5 compétences indispensables : (1) Facilitation et gestion de réunions, (2) Communication digitale multicanal, (3) Gestion financière de base et transparence, (4) Recrutement et fidélisation des membres, (5) Reportage d'impact pour les bailleurs.
+
+Ces compétences s'apprennent. Society propose des ressources de formation intégrées pour chaque module de gestion communautaire.`,
+  3: `Le crowdfunding solidaire explose en Afrique de l'Ouest. Pour maximiser vos collectes, trois éléments sont déterminants : un objectif précis et chiffré, une histoire émotionnelle authentique, et une relance régulière de votre réseau.
+
+Fixez un objectif SMART : spécifique, mesurable, atteignable en 30 jours. Les cagnottes avec une deadline courte surpassent systématiquement celles sans limite de temps.
+
+Avec Society, lancez votre collecte en moins de 10 minutes, suivez les dons en temps réel et remerciez automatiquement chaque contributeur.`,
+  4: `Un membre inactif coûte plus cher qu'un membre jamais recruté : il représente une désillusion, parfois une démotivation collective.
+
+Trois leviers concrets testés par des associations ivoiriennes : la reconnaissance publique régulière (citation en réunion, badge digital), les missions courtes et bien définies (engagement de 2h max), et la célébration des petites victoires collectives.
+
+Society permet de programmer des rappels personnalisés, d'attribuer des badges automatiquement et de mesurer l'engagement de chaque membre.`,
+  5: `La digitalisation de votre Assemblée Générale n'est plus un luxe depuis 2025. Voici les étapes clés : définissez le quorum numérique dans vos statuts, choisissez une plateforme avec vote sécurisé, envoyez les convocations 21 jours à l'avance.
+
+Society génère automatiquement le PV de votre AG, archive les votes et envoie le compte-rendu signé à tous les membres dans les 24h.
+
+Coût : zéro. Temps gagné : 8h par AG en moyenne selon nos utilisateurs pilotes.`,
+  6: `Un rapport d'impact réussi répond à trois questions : Qui avez-vous touché ? Qu'est-ce qui a changé dans leur vie ? Comment le prouvez-vous ?
+
+La méthode SEEF (Social, Économique, Environnemental, Formation) adoptée par 200+ organisations structure votre rapport en 4 chapitres clairs et mesurables.
+
+Society automatise la collecte de données à chaque action de votre communauté. En fin d'année, votre rapport se génère en quelques clics — données vérifiées, visuels inclus.`,
+}
+
 export default function Blog() {
+  const [activeFilter, setActiveFilter] = useState('Tout')
+  const [expanded, setExpanded] = useState(null)
   const featured = articles.find(a => a.featured)
   const others = articles.filter(a => !a.featured)
+  const filtered = activeFilter === 'Tout' ? others : others.filter(a => a.category === activeFilter)
 
   return (
     <div className="page">
@@ -92,8 +129,8 @@ export default function Blog() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 40, flexWrap: 'wrap', gap: 16 }}>
             <h2 style={{ fontSize: 28, fontWeight: 800 }}>Tous les articles</h2>
             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-              {['Tout', 'Gestion', 'Leadership', 'Financement', 'Engagement'].map(f => (
-                <button key={f} style={{ padding: '8px 18px', border: f === 'Tout' ? '2px solid #0E47AB' : '1px solid #E5E5E5', background: f === 'Tout' ? '#0E47AB' : 'white', color: f === 'Tout' ? 'white' : '#3A3A3A', borderRadius: 999, fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
+              {['Tout', 'Gestion', 'Leadership', 'Financement', 'Engagement', 'Evenements', 'Impact'].map(f => (
+                <button key={f} onClick={() => setActiveFilter(f)} style={{ padding: '8px 18px', border: f === activeFilter ? '2px solid #0E47AB' : '1px solid #E5E5E5', background: f === activeFilter ? '#0E47AB' : 'white', color: f === activeFilter ? 'white' : '#3A3A3A', borderRadius: 999, fontSize: 13, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', transition: 'all 0.15s' }}>
                   {f}
                 </button>
               ))}
@@ -101,8 +138,8 @@ export default function Blog() {
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 28 }}>
-            {others.map(article => (
-              <div key={article.id} style={{ background: 'white', border: '1px solid #EBEBEB', borderRadius: 24, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+            {filtered.map(article => (
+              <div key={article.id} style={{ background: 'white', border: `1px solid ${expanded === article.id ? '#0E47AB' : '#EBEBEB'}`, borderRadius: 24, overflow: 'hidden', display: 'flex', flexDirection: 'column', transition: 'border-color 0.15s' }}>
                 <div style={{ height: 200, background: catBg[article.category] || '#F2F2F2', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 32 }}>
                   <div style={{ textAlign: 'center' }}>
                     <Icon name={catIcon[article.category] || 'chart'} size={48} color={catText[article.category] || '#3A3A3A'} />
@@ -114,9 +151,17 @@ export default function Blog() {
                     {article.category}
                   </span>
                   <h3 style={{ fontSize: 18, fontWeight: 800, lineHeight: 1.2, flex: 1 }}>{article.title}</h3>
-                  <p style={{ fontSize: 14, color: '#6B6B6B', marginTop: 14, lineHeight: 1.55 }}>
-                    {article.excerpt.slice(0, 120)}...
-                  </p>
+                  {expanded === article.id ? (
+                    <div style={{ marginTop: 14 }}>
+                      {(FULL_CONTENT[article.id] || article.excerpt).split('\n\n').map((para, i) => (
+                        <p key={i} style={{ fontSize: 15, color: '#3A3A3A', lineHeight: 1.7, marginBottom: 12 }}>{para}</p>
+                      ))}
+                    </div>
+                  ) : (
+                    <p style={{ fontSize: 14, color: '#6B6B6B', marginTop: 14, lineHeight: 1.55 }}>
+                      {article.excerpt.slice(0, 120)}...
+                    </p>
+                  )}
                   <div style={{ marginTop: 24, paddingTop: 20, borderTop: '1px solid #F0F0F0', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                       <div style={{ width: 32, height: 32, borderRadius: 999, background: '#0E47AB', display: 'grid', placeItems: 'center', fontWeight: 800, color: 'white', fontSize: 12 }}>
@@ -127,8 +172,8 @@ export default function Blog() {
                         <div style={{ fontSize: 11, color: '#9B9B9B' }}>{article.readTime} - {article.date}</div>
                       </div>
                     </div>
-                    <button style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4, fontSize: 13, fontWeight: 700, color: '#0E47AB' }}>
-                      Lire <Icon name="arrow" size={14} color="#0E47AB" />
+                    <button onClick={() => setExpanded(expanded === article.id ? null : article.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4, fontSize: 13, fontWeight: 700, color: '#0E47AB', fontFamily: 'inherit' }}>
+                      {expanded === article.id ? 'Réduire' : 'Lire'} <Icon name="arrow" size={14} color="#0E47AB" />
                     </button>
                   </div>
                 </div>

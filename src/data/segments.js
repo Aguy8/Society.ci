@@ -96,7 +96,7 @@ export const SEGMENTS = [
     count: '12 000+',
     ex: "Vases d'Honneur, AEBECI, Diocèse d'Abidjan, mosquées de quartier, fraternités",
     tagline: 'Rassemblez. Guidez. Bâtissez.',
-    pb: 'Coordination complexe entre paroisses et sous-groupes, collectes informelles non traçables, fidèles éparpillés sans outil de communication adapté.',
+    pb: 'Coordination complexe des entités, collectes difficilement traçables sur le long terme, aucun outil de gestion des membres et des interactions communautaires.',
     pbDetail: [
       'La communication entre les différents groupes de l\'église est fragmentée',
       'Les dîmes et offrandes sont collectées sans traçabilité numérique',
@@ -118,7 +118,7 @@ export const SEGMENTS = [
     count: '4 000+',
     ex: 'Artistes, personnalités publiques, pasteurs, coachs, créateurs de contenu',
     tagline: 'Possédez. Monétisez. Durez.',
-    pb: 'Audience volatile et dépendante des algorithmes, pas de revenus directs de la communauté, risque de perte de compte et de followers.',
+    pb: 'Audience volatile et dépendante des algorithmes, pas de revenus directs de la communauté, pas de lien direct avec la communauté, risque de perte de compte et de followers.',
     pbDetail: [
       'Instagram ou TikTok peut réduire votre reach à 0% sans préavis',
       'Vous avez 50 000 abonnés mais aucun revenu direct de votre communauté',

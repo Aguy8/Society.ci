@@ -42,6 +42,32 @@ export default function Presse() {
     <div className="page">
       <Nav />
 
+      <section style={{ padding: '120px 64px', minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0a0a0a', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: -100, right: -100, width: 500, height: 500, borderRadius: '50%', background: '#0E47AB', opacity: 0.12, filter: 'blur(80px)' }} />
+        <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '8px 20px', background: 'rgba(212,167,91,0.12)', border: '1px solid rgba(212,167,91,0.3)', borderRadius: 999, marginBottom: 32 }}>
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#D4A75B' }} />
+            <span style={{ fontSize: 13, fontWeight: 700, color: '#D4A75B', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Bientôt disponible</span>
+          </div>
+          <h1 style={{ fontSize: 80, lineHeight: 0.92, color: 'white', maxWidth: 700, margin: '0 auto' }}>
+            Espace Presse<br />
+            <span style={{ color: '#D4A75B' }}>en construction.</span>
+          </h1>
+          <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.65)', marginTop: 28, maxWidth: 500, margin: '28px auto 0', lineHeight: 1.65 }}>
+            Notre espace presse est en cours de préparation. Pour toute demande médiatique, contactez directement notre équipe.
+          </p>
+          <div style={{ marginTop: 48 }}>
+            <NavLink to="/contact" className="btn btn-gold btn-xl">
+              Contacter l'équipe
+              <Icon name="arrow" size={16} color="#0a0a0a" />
+            </NavLink>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTENU PRESSE MASQUÉ — sera dévoilé au lancement */}
+      <div style={{ display: 'none' }}>
+
       <section style={{ padding: '120px 64px 80px', background: '#0a0a0a', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: -100, right: -100, width: 500, height: 500, borderRadius: 999, background: '#0E47AB', opacity: 0.12 }} />
         <div style={{ position: 'absolute', bottom: -60, left: 200, width: 300, height: 300, borderRadius: 999, background: '#D4A75B', opacity: 0.1 }} />
@@ -167,6 +193,8 @@ export default function Presse() {
       </section>
 
       <Footer />
+      </div>{/* end hidden */}
+
     </div>
   )
 }

@@ -34,7 +34,7 @@ export default function Fonctionnalites() {
               Zéro friction.
             </h1>
             <p style={{ fontSize: 20, marginTop: 32, maxWidth: 700, lineHeight: 1.5 }}>
-              Chaque module est pensé pour les réalités africaines : mobile-first, paiements locaux, multilinguisme, usage hors-ligne partiel.
+              Chaque module est pensé pour les réalités africaines : mobile-first, paiements locaux, usage hors-ligne partiel.
             </p>
           </div>
           <div style={{ display: 'flex', gap: 8, marginTop: 56, flexWrap: 'wrap' }}>

@@ -43,12 +43,6 @@ const FEATURES = [
   { icon: 'bolt', title: 'Formation intégrée', desc: 'Partagez des modules de formation, des guides et des ressources directement dans le profil de chaque bénévole.' },
 ]
 
-const STATS = [
-  { n: '18 000+', l: 'Bénévoles inscrits sur Society' },
-  { n: '240h', l: 'de bénévolat suivi par org/an' },
-  { n: '92%', l: 'Taux de satisfaction bénévoles' },
-  { n: '3×', l: 'Plus de fidélisation vs. sans outil' },
-]
 
 export default function Benevolat() {
   return (
@@ -56,9 +50,9 @@ export default function Benevolat() {
       <Nav />
 
       {/* HERO */}
-      <section style={{ position: 'relative', minHeight: 640, display: 'flex', alignItems: 'flex-end', padding: '0 64px 80px', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80)', backgroundSize: 'cover', backgroundPosition: 'center 30%' }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(14,71,171,0.4) 0%, rgba(10,10,10,0.88) 100%)' }} />
+      <section style={{ position: 'relative', minHeight: 640, display: 'flex', alignItems: 'flex-end', padding: '0 64px 80px', overflow: 'hidden', background: '#0a0a0a' }}>
+        <div style={{ position: 'absolute', top: -200, left: -200, width: 600, height: 600, borderRadius: '50%', background: '#0E47AB', opacity: 0.12, filter: 'blur(80px)' }} />
+        <div style={{ position: 'absolute', bottom: -100, right: -100, width: 400, height: 400, borderRadius: '50%', background: '#D4A75B', opacity: 0.1, filter: 'blur(60px)' }} />
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 4, background: 'linear-gradient(90deg, #0E47AB, #D4A75B)' }} />
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <NavLink to="/fonctionnalites" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.75)', fontSize: 14, fontWeight: 600, textDecoration: 'none', marginBottom: 32 }}>
@@ -85,17 +79,6 @@ export default function Benevolat() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section style={{ padding: '0' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }}>
-          {STATS.map((stat, i) => (
-            <div key={i} style={{ padding: '40px 28px', background: i % 2 === 0 ? '#0E47AB' : '#0a0a0a', textAlign: 'center', borderRight: '1px solid rgba(255,255,255,0.08)' }}>
-              <div style={{ fontSize: 48, fontWeight: 800, color: 'white', letterSpacing: '-0.04em', lineHeight: 1 }}>{stat.n}</div>
-              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', marginTop: 8, lineHeight: 1.4 }}>{stat.l}</div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* PROBLÈME */}
       <section style={{ padding: '100px 64px', background: '#F8F8F8' }}>
@@ -103,7 +86,7 @@ export default function Benevolat() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
             <div>
               <span className="eyebrow">Le constat</span>
-              <h2 style={{ fontSize: 52, marginTop: 20, lineHeight: 1.05 }}>Le bénévolat africain mérite mieux qu'Excel.</h2>
+              <h2 style={{ fontSize: 52, marginTop: 20, lineHeight: 1.05 }}>Le bénévolat africain mérite une vraie infrastructure.</h2>
               <p style={{ fontSize: 17, marginTop: 24, color: '#3A3A3A', lineHeight: 1.7 }}>
                 En Côte d'Ivoire, 80% des associations gèrent leurs bénévoles via WhatsApp ou des tableaux Excel. Résultat : absences non anticipées, heures non comptabilisées, bénévoles démotivés.
               </p>
@@ -129,18 +112,18 @@ export default function Benevolat() {
                     <div style={{ fontSize: 13, fontWeight: 700, color: '#0E47AB', marginBottom: 8 }}>Module Bénévolat Society</div>
                     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
                       <div style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: 28, fontWeight: 800, color: '#0a0a0a', letterSpacing: '-0.03em' }}>47</div>
+                        <div style={{ fontSize: 28, fontWeight: 800, color: '#0a0a0a', letterSpacing: '-0.03em' }}>∞</div>
                         <div style={{ fontSize: 11, color: '#6B6B6B' }}>bénévoles actifs</div>
                       </div>
                       <div style={{ width: 1, height: 40, background: '#E5E5E5' }} />
                       <div style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: 28, fontWeight: 800, color: '#0E47AB', letterSpacing: '-0.03em' }}>312h</div>
-                        <div style={{ fontSize: 11, color: '#6B6B6B' }}>ce mois</div>
+                        <div style={{ fontSize: 28, fontWeight: 800, color: '#0E47AB', letterSpacing: '-0.03em' }}>∞h</div>
+                        <div style={{ fontSize: 11, color: '#6B6B6B' }}>suivies</div>
                       </div>
                       <div style={{ width: 1, height: 40, background: '#E5E5E5' }} />
                       <div style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: 28, fontWeight: 800, color: '#166534', letterSpacing: '-0.03em' }}>94%</div>
-                        <div style={{ fontSize: 11, color: '#6B6B6B' }}>présents</div>
+                        <div style={{ fontSize: 28, fontWeight: 800, color: '#166534', letterSpacing: '-0.03em' }}>∞</div>
+                        <div style={{ fontSize: 11, color: '#6B6B6B' }}>attestations</div>
                       </div>
                     </div>
                   </div>
@@ -207,11 +190,11 @@ export default function Benevolat() {
             <div>
               <div style={{ fontSize: 96, color: 'rgba(255,255,255,0.15)', fontFamily: 'Georgia, serif', lineHeight: 1, marginBottom: -24 }}>"</div>
               <blockquote style={{ margin: 0, fontSize: 26, fontWeight: 600, lineHeight: 1.35, color: 'white' }}>
-                Avec Society, on a pu structurer notre réseau de 120 bénévoles, suivre 890 heures de volontariat et générer les attestations pour tous. Nos bailleurs ont été bluffés par notre rapport d'impact.
+                Avec Society, je suis capable de structurer un réseau de 120 bénévoles, suivre 890 heures de volontariat et générer des attestations pour tous. La communauté, les donateurs et les bailleurs seront bluffés par votre rapport d'impact.
               </blockquote>
               <div style={{ marginTop: 36, paddingTop: 28, borderTop: '1px solid rgba(255,255,255,0.2)' }}>
                 <div style={{ fontWeight: 800, fontSize: 18, color: 'white' }}>Mariama Kouyaté</div>
-                <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: 15, marginTop: 4 }}>Directrice, ONG Eau Vive Abidjan</div>
+                <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: 15, marginTop: 4 }}>Coordinatrice bénévolat, ONG Eau Vive Abidjan</div>
               </div>
             </div>
           </div>
