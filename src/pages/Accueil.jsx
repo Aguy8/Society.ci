@@ -76,7 +76,7 @@ export default function Accueil() {
               <div style={{ position: 'absolute', inset: 0, background: '#0E47AB', borderRadius: 40, transform: 'rotate(-3deg)' }} />
               <div style={{ position: 'absolute', top: 30, right: 40, width: 200, height: 200, background: '#D4A75B', borderRadius: 999 }} />
               <div style={{ position: 'absolute', top: 60, left: '50%', transform: 'translateX(-50%)', width: 280, aspectRatio: '9 / 19.5', borderRadius: 42, border: '10px solid #0a0a0a', overflow: 'hidden', boxShadow: '0 40px 80px rgba(0,0,0,0.3)', background: '#0a0a0a' }}>
-                <img src="https://fr.pinterest.com/pin/153263193546080185/" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+                <img src="https://drive.google.com/uc?export=download&id=1AyXeatTesFew5YMqBBct_iQvSZKVgzmC" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
               </div>
               <div style={{ position: 'absolute', top: 120, left: -20, background: 'white', padding: 16, borderRadius: 20, boxShadow: '0 20px 50px rgba(0,0,0,0.15)', width: 200 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
