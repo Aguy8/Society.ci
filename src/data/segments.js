@@ -106,7 +106,7 @@ export const SEGMENTS = [
     sol: ['Communication ciblée par sous-groupe', 'Cagnottes & offrandes traçables', 'Gestion des fidèles', 'Événements & billetterie lives', 'Jeunesse & sous-comités', 'Rapport financier transparent'],
     modules: ['Gestion communautaire', 'Monétisation', 'Visibilité & Impact'],
     stats: [{ n: '12 000+', l: 'groupes religieux en CI' }, { n: '85 %', l: 'collectent encore manuellement' }, { n: '3x', l: 'plus d\'engagement fidèles sur plateforme dédiée' }, { n: '0', l: 'fraude financière rapportée chez nos utilisateurs' }],
-    temoignage: { texte: 'Notre commununauté de 2 000 fidèles était impossible à coordonner. Avec Society, tous les sous-groupes communiquent, les offrandes sont tracées et notre pasteur voit tout en temps réel.', auteur: 'Olivier K.', role: 'Responsable — Vases d\'Honneur Abidjan', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778372216/The_Results_Are_In_Working_Less_Makes_You_Happier_According_To_Science_HuffPost_nnspu0.jpg' },
+    temoignage: { texte: 'Notre commununauté de 2 000 fidèles était impossible à coordonner. Avec Society, tous les sous-groupes communiquent, la trésorerie est bien suivie et notre leader voit tout en temps réel.', auteur: 'Olivier C.', role: 'Responsable de jeunes', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778372216/The_Results_Are_In_Working_Less_Makes_You_Happier_According_To_Science_HuffPost_nnspu0.jpg' },
     plan_recommande: 'Communauté',
   },
   {
@@ -128,7 +128,7 @@ export const SEGMENTS = [
     sol: ['Communauté propriétaire indépendante', 'Monétisation directe (abonnements, contenu premium)', 'Indépendance algorithmique', 'Q&A & lives privés', 'Boutique de contenus', 'Analytics audience avancés'],
     modules: ['Espace Leader', 'Monétisation', 'Gestion communautaire'],
     stats: [{ n: '4 000+', l: 'créateurs & leaders en CI' }, { n: '78 %', l: 'de reach perdu sur Instagram en 3 ans' }, { n: '0 %', l: 'de revenus directs pour la majorité' }, { n: '1,2 M', l: 'FCFA/mois pour nos leaders bêta les plus actifs' }],
-    temoignage: { texte: 'J\'avais 80 000 abonnés Instagram et je gagnais 0 FCFA de ma communauté. Sur Society, en 2 mois j\'ai 1 400 fans abonnés à 5 000 FCFA/mois. C\'est ma liberté financière.', auteur: 'Mel E.', role: 'Créatrice de contenu & coach bien-être', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778378095/men_s_pose_np7y4w.jpg' },
+    temoignage: { texte: 'J\'avais 80 000 abonnés Instagram et je gagnais 0 FCFA de ma communauté. Sur Society, en 2 mois j\'ai 1 400 fans abonnés à 5 000 FCFA/mois. C\'est ma liberté financière.', auteur: 'Franck L.', role: 'Créatrice de contenu & coach bien-être', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778378095/men_s_pose_np7y4w.jpg' },
     plan_recommande: 'Pro',
   },
   {
