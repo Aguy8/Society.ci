@@ -1,9 +1,28 @@
+import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import Nav from '../components/Nav.jsx'
 import Footer from '../components/Footer.jsx'
 import Marquee from '../components/Marquee.jsx'
 import Icon from '../components/Icon.jsx'
 import Reveal from '../components/Reveal.jsx'
+
+function ScrollToTopBtn() {
+  const [visible, setVisible] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 400)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  if (!visible) return null
+  return (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      style={{ position: 'fixed', bottom: 32, right: 32, width: 48, height: 48, borderRadius: '50%', background: '#0E47AB', border: 'none', cursor: 'pointer', display: 'grid', placeItems: 'center', boxShadow: '0 8px 24px rgba(14,71,171,0.4)', zIndex: 200, transition: 'transform 0.2s' }}
+      aria-label="Remonter en haut">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+  )
+}
 
 export default function Accueil() {
   return (
@@ -40,7 +59,7 @@ export default function Accueil() {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginTop: 56, flexWrap: 'wrap' }}>
                   <div className="avatars">
-                    {['https://images.unsplash.com/photo-1531123897727-8f11ebb3a745?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1489424731084-a3d5bc15a39b?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80'].map(img => (
+                    {['https://res.cloudinary.com/dyqeot2wi/image/upload/v1778357842/6c754c3a-bd83-4032-a2aa-8a60586dfb7e_duq7rr.jpg', 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778357840/Boost_Your_Website_Visibility_with_Expert_SEO_Strategies_vgf7bt.jpg', 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370153/zzzz_hwtnnw.jpg', 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370727/t%C3%A9l%C3%A9chargement_5_vzffpj.jpg', 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370768/STEVE_ONOJA_re85d4.jpg'].map(img => (
                       <div key={img} style={{ backgroundImage: `url(${img})` }} />
                     ))}
                   </div>
@@ -57,7 +76,7 @@ export default function Accueil() {
               <div style={{ position: 'absolute', inset: 0, background: '#0E47AB', borderRadius: 40, transform: 'rotate(-3deg)' }} />
               <div style={{ position: 'absolute', top: 30, right: 40, width: 200, height: 200, background: '#D4A75B', borderRadius: 999 }} />
               <div style={{ position: 'absolute', top: 60, left: '50%', transform: 'translateX(-50%)', width: 280, aspectRatio: '9 / 19.5', borderRadius: 42, border: '10px solid #0a0a0a', overflow: 'hidden', boxShadow: '0 40px 80px rgba(0,0,0,0.3)', background: '#0a0a0a' }}>
-                <img src="https://images.unsplash.com/photo-1556742393-d75f468bfcb0?auto=format&fit=crop&w=400&q=80" alt="Society app" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+                <img src="https://res.cloudinary.com/dyqeot2wi/image/upload/v1778354781/accueil_xcou5d.png" alt="Society app" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
               </div>
               <div style={{ position: 'absolute', top: 120, left: -20, background: 'white', padding: 16, borderRadius: 20, boxShadow: '0 20px 50px rgba(0,0,0,0.15)', width: 200 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
@@ -180,7 +199,7 @@ export default function Accueil() {
               <div className="module-card module-grey" style={{ minHeight: 280 }}>
                 <div className="module-tag" style={{ background: 'white' }}>03 — Gestion des entités</div>
                 <h3 style={{ fontSize: 28, marginTop: 12 }}>Trésorerie & coordination.</h3>
-                <p style={{ marginTop: 12, fontSize: 15 }}>Coordination d'événements, collecte et dons en ligne, sous-entités — tout centralisé.</p>
+                <p style={{ marginTop: 12, fontSize: 15 }}>Coordination d'événements, collecte et dons en ligne, sous-entités — tout, centralisé.</p>
                 <div style={{ display: 'flex', gap: 8, marginTop: 16, flexWrap: 'wrap' }}>
                   {['Trésorerie', 'Événements', 'Dons en ligne'].map(t => (
                     <span key={t} style={{ padding: '6px 12px', background: 'white', borderRadius: 999, fontSize: 12, fontWeight: 600 }}>{t}</span>
@@ -206,9 +225,9 @@ export default function Accueil() {
                 <div className="module-tag" style={{ background: 'rgba(255,255,255,0.6)' }}>05 — Espace Leader</div>
                 <h3 style={{ fontSize: 28, marginTop: 12 }}>Votre audience.<br />Votre algorithme.</h3>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 16, padding: '12px 14px', background: 'rgba(255,255,255,0.7)', borderRadius: 14, backdropFilter: 'blur(10px)' }}>
-                  <div style={{ width: 40, height: 40, borderRadius: '50%', backgroundImage: 'url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=800&q=80)', backgroundSize: 'cover', flexShrink: 0 }} />
+                  <div style={{ width: 40, height: 40, borderRadius: '50%', backgroundImage: 'url(https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370100/eeee_omrrkt.jpg)', backgroundSize: 'cover', flexShrink: 0 }} />
                   <div>
-                    <div style={{ fontWeight: 800, fontSize: 14 }}>Aïssatou D.</div>
+                    <div style={{ fontWeight: 800, fontSize: 14 }}>Franceline D.</div>
                     <div style={{ fontSize: 12, color: '#6B6B6B' }}>+ 4 200 fans abonnés</div>
                   </div>
                 </div>
@@ -229,25 +248,22 @@ export default function Accueil() {
           </Reveal>
           <div className="segments-grid">
             {[
-              { n: 'ONG & Associations', slug: 'ong-associations', img: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80', d: 'Coordonnez vos actions, prouvez votre impact, sécurisez vos bailleurs.', count: '20 000+' },
-              { n: 'Mutuelles & Tontines', slug: 'mutuelles-tontines', img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80', d: 'Automatisez les cotisations, sécurisez les flux, fini les conflits.', count: '15 000+' },
-              { n: 'Alumni & Jeunesse', slug: 'alumni-jeunesse', img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80', d: 'Reconnectez la diaspora, organisez événements et mentorat.', count: '8 000+' },
-              { n: 'Réseaux Pro', slug: 'reseaux-professionnels', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80', d: 'Espaces collaboratifs, contenus premium, mise en relation.', count: '6 000+' },
-              { n: 'Groupes Religieux', slug: 'groupes-religieux', img: 'https://images.unsplash.com/photo-1514746676280-63eff6c01a95?auto=format&fit=crop&w=800&q=80', d: 'Gestion des entités, trésorerie, coordination d\'événements et collecte en ligne.', count: '12 000+' },
-              { n: 'Leaders & Influenceurs', slug: 'leaders-influenceurs', img: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80', d: 'Communauté propriétaire, monétisation directe, indépendance.', count: '4 000+' },
+              { n: 'ONG & Associations', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778371275/ede_kwftiu.jpg', d: 'Coordonnez vos actions, prouvez votre impact, collecter des dons.', count: '20 000+' },
+              { n: 'Mutuelles & Tontines', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370127/Les_femmes_noir_vsafxu.jpg', d: 'Automatisez les cotisations, sécurisez les flux, fini les conflits.', count: '15 000+' },
+              { n: 'Alumni & Jeunesse', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370149/You_either_felt_this_or_you_re_about_to_wish_you_did__Full_gallery_now_live_LINK_IN_BIO_%EF%B8%8F_kmzxuz.jpg', d: 'Créer des synergies, organisez événements et mentorat.', count: '8 000+' },
+              { n: 'Réseaux Pro', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370111/eer_afatuz.jpg', d: 'Espaces collaboratifs, contenus premium, mise en relation.', count: '6 000+' },
+              { n: 'Groupes Religieux', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370137/t%C3%A9l%C3%A9chargement_2_evqqgb.jpg', d: 'Gestion des entités, trésorerie, coordination d\'événements et collecte en ligne.', count: '12 000+' },
+              { n: 'Leaders & Influenceurs', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370156/zeeee_b2qc68.jpg', d: 'Communauté propriétaire, monétisation directe, indépendance.', count: '4 000+' },
             ].map((s, i) => (
               <Reveal key={i} delay={i * 80} direction="scale">
-                <NavLink to={`/pour-qui/${s.slug}`} style={{ display: 'block', textDecoration: 'none', borderRadius: 24, overflow: 'hidden', position: 'relative', aspectRatio: '4/5', backgroundImage: `url(${s.img})`, backgroundSize: 'cover', backgroundPosition: 'center', transition: 'transform 0.2s' }}
-                  onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.02)'}
-                  onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
+                <div style={{ borderRadius: 24, overflow: 'hidden', position: 'relative', aspectRatio: '4/5', backgroundImage: `url(${s.img})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.85) 100%)' }} />
-                  <div style={{ position: 'absolute', top: 20, right: 20, padding: '6px 12px', background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)', borderRadius: 999, fontSize: 12, fontWeight: 600, color: 'white' }}>{s.count} en CI</div>
+                  <div style={{ position: 'absolute', top: 20, right: 20, padding: '6px 12px', background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)', borderRadius: 999, fontSize: 12, fontWeight: 600 }}>{s.count} en CI</div>
                   <div style={{ position: 'absolute', bottom: 28, left: 28, right: 28 }}>
                     <h3 style={{ color: 'white', fontSize: 28, lineHeight: 1 }}>{s.n}</h3>
                     <p style={{ color: 'rgba(255,255,255,0.85)', marginTop: 10, fontSize: 14 }}>{s.d}</p>
-                    <div style={{ marginTop: 16, display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.9)' }}>Découvrir →</div>
                   </div>
-                </NavLink>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -293,7 +309,7 @@ export default function Accueil() {
           <div className="two-col-grid">
             <Reveal direction="left">
               <div style={{ borderRadius: 32, overflow: 'hidden', aspectRatio: '4/5' }}>
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="témoin" />
+                <img src="https://res.cloudinary.com/dyqeot2wi/image/upload/v1778372215/t%C3%A9l%C3%A9chargement_9_mln4bz.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="témoin" />
               </div>
             </Reveal>
             <Reveal direction="right">
@@ -304,7 +320,7 @@ export default function Accueil() {
               <div style={{ marginTop: 40, display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
                 <div>
                   <div style={{ fontWeight: 700, fontSize: 18 }}>Awa K.</div>
-                  <div style={{ color: '#6B6B6B', fontSize: 15 }}>Présidente — Mutuelle des Femmes d'Abobo</div>
+                  <div style={{ color: '#6B6B6B', fontSize: 15 }}>Présidente — Mutuelle</div>
                 </div>
               </div>
             </Reveal>
@@ -347,6 +363,7 @@ export default function Accueil() {
       </section>
 
       <Footer />
+      <ScrollToTopBtn />
     </div>
   )
 }

@@ -114,9 +114,9 @@ export default function Fonctionnalites() {
                 </div>
                 <div style={{ display: 'grid', gap: 8 }}>
                   {[
-                    { n: 'Awa K.', r: 'Trésorière', img: 'https://images.unsplash.com/photo-1531123897727-8f11ebb3a745?auto=format&fit=crop&w=800&q=80' },
-                    { n: 'Mamadou D.', r: 'Bénévole', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80' },
-                    { n: 'Salimata B.', r: 'Membre actif', img: 'https://images.unsplash.com/photo-1548142813-c348350df52b?auto=format&fit=crop&w=800&q=80' },
+                    { n: 'Rosine K.', r: 'Trésorière', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370727/t%C3%A9l%C3%A9chargement_5_vzffpj.jpg' },
+                    { n: 'Mamadou D.', r: 'Bénévole', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778372216/Download_premium_image_of_Black_man_typing_on_a_keyboard_by_Felix_about_young_man_computer_freelancer_african_african_blogger_looking_screen_and_person_1224138_urezji.jpg' },
+                    { n: 'Fred B.', r: 'Membre actif', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778372902/Handsome_man_using_modern_smartphone_outdoors___Free_Photo_wqnnb7.jpg' },
                   ].map((m, i) => (
                     <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: 10, background: '#F8F8F8', borderRadius: 10 }}>
                       <div style={{ width: 32, height: 32, borderRadius: '50%', backgroundImage: `url(${m.img})`, backgroundSize: 'cover' }} />
@@ -189,9 +189,9 @@ export default function Fonctionnalites() {
                 </div>
                 <div style={{ marginTop: 20, display: 'grid', gap: 8 }}>
                   {[
-                    { n: 'Kofi A.', m: '25 000 FCFA', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80' },
-                    { n: 'Mariame S.', m: '50 000 FCFA', img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80' },
-                    { n: 'Ibrahim D.', m: '10 000 FCFA', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80' },
+                    { n: 'Koffi A.', m: '25 000 FCFA', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778372902/Haitian_black_ptra3f.jpg' },
+                    { n: 'Mariame S.', m: '50 000 FCFA', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778372905/AI_Executive_Headshot__Burgundy_Blazer_Virtual_Model_zssnqb.jpg' },
+                    { n: 'Jean D.', m: '10 000 FCFA', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778372904/_Handsome_Young_Man__by_Stocksy_Contributor__Studio_Firma__eowmhy.jpg' },
                   ].map((d, i) => (
                     <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 0', borderTop: '1px solid #F2F2F2' }}>
                       <div style={{ width: 32, height: 32, borderRadius: '50%', backgroundImage: `url(${d.img})`, backgroundSize: 'cover', flexShrink: 0 }} />
@@ -260,9 +260,9 @@ export default function Fonctionnalites() {
               <div style={{ background: 'white', borderRadius: 20, padding: 24, boxShadow: '0 10px 40px rgba(0,0,0,0.06)' }}>
                 <div style={{ fontSize: 11, color: '#0F8B4F', fontWeight: 700, textTransform: 'uppercase' }}>Profil trouvé</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 10 }}>
-                  <div style={{ width: 44, height: 44, borderRadius: '50%', backgroundImage: 'url(https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80)', backgroundSize: 'cover', flexShrink: 0 }} />
+                  <div style={{ width: 44, height: 44, borderRadius: '50%', backgroundImage: 'url(https://res.cloudinary.com/dyqeot2wi/image/upload/v1778372904/FashionMen_FashionStyle_FashionLifeStyle_s2il3b.jpg)', backgroundSize: 'cover', flexShrink: 0 }} />
                   <div>
-                    <div style={{ fontSize: 16, fontWeight: 700 }}>Mamadou T.</div>
+                    <div style={{ fontSize: 16, fontWeight: 700 }}>Alex T.</div>
                     <div style={{ fontSize: 13, color: '#6B6B6B' }}>JCI Abidjan · React / Node.js</div>
                   </div>
                 </div>
@@ -372,9 +372,9 @@ export default function Fonctionnalites() {
               <div style={{ position: 'relative', zIndex: 1 }}>
                 <div style={{ background: 'white', borderRadius: 20, padding: 24, marginBottom: 16, boxShadow: '0 10px 40px rgba(0,0,0,0.08)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=800&q=80" style={{ width: 52, height: 52, borderRadius: '50%', objectFit: 'cover' }} alt="" />
+                    <img src="https://res.cloudinary.com/dyqeot2wi/image/upload/v1778372217/t%C3%A9l%C3%A9chargement_7_jjvilb.jpg" style={{ width: 52, height: 52, borderRadius: '50%', objectFit: 'cover' }} alt="" />
                     <div style={{ flex: 1 }}>
-                      <div style={{ fontWeight: 800, fontSize: 16 }}>Aïssatou D.</div>
+                      <div style={{ fontWeight: 800, fontSize: 16 }}>Déborah D.</div>
                       <div style={{ fontSize: 13, color: '#6B6B6B' }}>Coach bien-être · Abidjan</div>
                     </div>
                     <div style={{ padding: '6px 12px', background: '#0a0a0a', color: 'white', borderRadius: 999, fontSize: 12, fontWeight: 700 }}>VIP</div>
