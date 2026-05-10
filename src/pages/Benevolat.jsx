@@ -106,7 +106,7 @@ export default function Benevolat() {
             </div>
             <div>
               <div style={{ borderRadius: 32, overflow: 'hidden', aspectRatio: '4/5', position: 'relative', boxShadow: '0 32px 64px rgba(0,0,0,0.15)' }}>
-                <img src="https://res.cloudinary.com/dyqeot2wi/image/upload/v1778379825/t%C3%A9l%C3%A9chargement_12_m5soiq.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Bénévolat" />
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Bénévolat" />
                 <div style={{ position: 'absolute', bottom: 24, left: 24, right: 24 }}>
                   <div style={{ background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(20px)', borderRadius: 20, padding: '20px 24px' }}>
                     <div style={{ fontSize: 13, fontWeight: 700, color: '#0E47AB', marginBottom: 8 }}>Module Bénévolat Society</div>
@@ -185,7 +185,7 @@ export default function Benevolat() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
             <div style={{ borderRadius: 32, overflow: 'hidden', aspectRatio: '1/1', boxShadow: '0 32px 64px rgba(0,0,0,0.3)' }}>
-              <img src="https://res.cloudinary.com/dyqeot2wi/image/upload/v1778379934/eertert_tainjb.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Testimonial" />
+              <img src="https://images.unsplash.com/photo-1489424731084-a3d5bc15a39b?auto=format&fit=crop&w=800&q=80" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Testimonial" />
             </div>
             <div>
               <div style={{ fontSize: 96, color: 'rgba(255,255,255,0.15)', fontFamily: 'Georgia, serif', lineHeight: 1, marginBottom: -24 }}>"</div>
@@ -193,7 +193,7 @@ export default function Benevolat() {
                 Avec Society, je suis capable de structurer un réseau de 120 bénévoles, suivre 890 heures de volontariat et générer des attestations pour tous. La communauté, les donateurs et les bailleurs seront bluffés par votre rapport d'impact.
               </blockquote>
               <div style={{ marginTop: 36, paddingTop: 28, borderTop: '1px solid rgba(255,255,255,0.2)' }}>
-                <div style={{ fontWeight: 800, fontSize: 18, color: 'white' }}>Luc K.</div>
+                <div style={{ fontWeight: 800, fontSize: 18, color: 'white' }}>Mariama Kouyaté</div>
                 <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: 15, marginTop: 4 }}>Coordinatrice bénévolat, ONG Eau Vive Abidjan</div>
               </div>
             </div>

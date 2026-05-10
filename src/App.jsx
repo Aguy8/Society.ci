@@ -23,6 +23,8 @@ import Confidentialite from './pages/Confidentialite.jsx'
 import CGU from './pages/CGU.jsx'
 import Benevolat from './pages/Benevolat.jsx'
 import MiseEnRelation from './pages/MiseEnRelation.jsx'
+import Diagnostic from './pages/Diagnostic.jsx'
+import Presentation from './pages/Presentation.jsx'
 import Comparatif from './pages/Comparatif.jsx'
 import Integrations from './pages/Integrations.jsx'
 import Manifeste from './pages/Manifeste.jsx'
@@ -86,6 +88,9 @@ export default function App() {
         <Route path="/newsletter" element={<Newsletter />} />
         <Route path="/webinaires" element={<Webinaires />} />
         <Route path="/changelog" element={<Changelog />} />
+        <Route path="/diagnostic/:slug" element={<Diagnostic />} />
+        <Route path="/diagnostic" element={<Diagnostic />} />
+        <Route path="/presentation" element={<Presentation />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </HashRouter>

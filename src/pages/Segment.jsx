@@ -48,15 +48,17 @@ export default function Segment() {
         <div style={{ backgroundImage: `url(${s.heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center top', minHeight: 480 }} />
       </section>
 
-      {/* STATS BAR */}
-      <section style={{ padding: '0' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }}>
-          {s.stats.map((stat, i) => (
-            <div key={i} style={{ padding: '40px 28px', background: i % 2 === 0 ? s.color : '#0a0a0a', textAlign: 'center', borderRight: '1px solid rgba(255,255,255,0.08)' }}>
-              <div style={{ fontSize: 52, fontWeight: 800, color: 'white', letterSpacing: '-0.04em', lineHeight: 1 }}>{stat.n}</div>
-              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)', marginTop: 8, lineHeight: 1.4 }}>{stat.l}</div>
-            </div>
-          ))}
+      {/* STATS BAR — minimaliste */}
+      <section style={{ background: '#0a0a0a', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }}>
+            {s.stats.map((stat, i) => (
+              <div key={i} style={{ padding: '52px 32px', borderRight: i < 3 ? '1px solid rgba(255,255,255,0.08)' : 'none' }}>
+                <div style={{ fontSize: 56, fontWeight: 800, color: 'white', letterSpacing: '-0.04em', lineHeight: 1 }}>{stat.n}</div>
+                <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', marginTop: 12, lineHeight: 1.5, letterSpacing: '0.01em' }}>{stat.l}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -175,6 +177,56 @@ export default function Segment() {
               <div style={{ marginTop: 32, padding: '16px 20px', background: 'rgba(255,255,255,0.12)', borderRadius: 16, position: 'relative' }}>
                 <div style={{ fontSize: 13, opacity: 0.9 }}>Accès gratuit · Phase bêta · Sans carte bancaire</div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FORMULAIRE DE DIAGNOSTIC */}
+      <section style={{ padding: '80px 64px', background: '#F8F8F8' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
+            <div>
+              <span className="eyebrow">Formulaire de diagnostic</span>
+              <h2 style={{ fontSize: 48, marginTop: 20 }}>Vos besoins.<br />Vos <span style={{ color: s.color }}>limites</span>.<br />Vos ambitions.</h2>
+              <p style={{ fontSize: 16, marginTop: 24, color: '#3A3A3A', lineHeight: 1.65, maxWidth: 440 }}>
+                Téléchargez notre formulaire de diagnostic gratuit, conçu spécifiquement pour les <strong>{s.nom.toLowerCase()}</strong>. 15 minutes pour cartographier vos défis et évaluer comment Society peut transformer votre communauté.
+              </p>
+              <div style={{ marginTop: 20, display: 'flex', flexDirection: 'column', gap: 10 }}>
+                {['Comprendre vos outils actuels et leurs limites', 'Identifier vos priorités et votre budget', 'Mesurer votre intérêt réel pour Society (score NPS)'].map((p, i) => (
+                  <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'center', fontSize: 14, color: '#3A3A3A' }}>
+                    <div style={{ width: 20, height: 20, borderRadius: '50%', background: s.color, display: 'grid', placeItems: 'center', flexShrink: 0 }}>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+                    </div>
+                    {p}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div style={{ background: 'white', borderRadius: 28, padding: 40, boxShadow: '0 8px 40px rgba(0,0,0,0.08)', border: '1px solid #E5E5E5' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 28 }}>
+                <div>
+                  <div style={{ fontWeight: 800, fontSize: 22, letterSpacing: '-0.03em' }}>Diagnostic Society</div>
+                  <div style={{ fontSize: 13, color: '#6B6B6B', marginTop: 4 }}>{s.nom} · Formulaire PDF</div>
+                </div>
+                <div style={{ padding: '4px 12px', background: `${s.color}18`, color: s.color, borderRadius: 999, fontSize: 11, fontWeight: 700 }}>Gratuit</div>
+              </div>
+              <div style={{ display: 'grid', gap: 10, marginBottom: 28 }}>
+                {['6 parties · ~15 minutes', 'Imprimable + remplissable', 'Score NPS inclus', 'Retournable par email'].map((f, i) => (
+                  <div key={i} style={{ display: 'flex', gap: 10, fontSize: 14, color: '#3A3A3A', padding: '10px 14px', background: '#F8F8F8', borderRadius: 10 }}>
+                    <span style={{ color: s.color, fontWeight: 700 }}>✓</span> {f}
+                  </div>
+                ))}
+              </div>
+              <NavLink
+                to={`/diagnostic/${s.slug}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '16px 24px', background: s.color, color: s.color === '#D4A75B' ? '#0a0a0a' : 'white', borderRadius: 999, fontWeight: 700, fontSize: 15, textDecoration: 'none', width: '100%' }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Télécharger le formulaire PDF
+              </NavLink>
+              <p style={{ fontSize: 12, color: '#9B9B9B', textAlign: 'center', marginTop: 14 }}>Ctrl+P pour sauvegarder en PDF</p>
             </div>
           </div>
         </div>

@@ -736,3 +736,15 @@ html, body {
   from { opacity: 0; transform: scale(0.85) translateY(8px); }
   to   { opacity: 1; transform: scale(1)   translateY(0);    }
 }
+
+/* ── PRINT ── */
+@media print {
+  .no-print { display: none !important; }
+  .nav, .footer, [style*="position: fixed"], [style*="position:fixed"] { display: none !important; }
+  body, .page { background: white !important; overflow: visible !important; }
+  .page { font-size: 13px; }
+  section { break-inside: avoid; }
+  .print-break { break-before: page; }
+  a { color: inherit !important; text-decoration: none !important; }
+  button { display: none !important; }
+}

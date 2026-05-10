@@ -146,6 +146,45 @@ export default function Tarifs() {
         </div>
       </section>
 
+      {/* INSTITUTION SHOWCASE */}
+      <section style={{ background: '#0a0a0a', padding: '80px 64px' }}>
+        <div className="container">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 56, flexWrap: 'wrap', gap: 24 }}>
+            <div>
+              <span className="eyebrow white">Plan Institution</span>
+              <h2 style={{ color: 'white', marginTop: 16, fontSize: 52, maxWidth: 600 }}>Pour les organisations<br />à fort impact institutionnel.</h2>
+              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 16, marginTop: 20, maxWidth: 560, lineHeight: 1.6 }}>
+                ONG, mutuelles nationales, fédérations, grandes paroisses — Society Institution est la seule solution qui combine gestion communautaire et analyse socio-économique à l'échelle africaine.
+              </p>
+            </div>
+            <NavLink to="/contact" className="btn btn-gold btn-lg">Demander un devis →</NavLink>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+            {[
+              { n: '01', title: 'Données socio-démographiques', desc: 'Indices de développement communautaire, cartographie géographique des membres, analyse d\'impact socio-économique et ODD.' },
+              { n: '02', title: 'Dashboard RSE multi-entités', desc: 'Pilotez plusieurs entités depuis un seul tableau de bord. Rapports bailleurs automatisés, conformes aux exigences des donateurs institutionnels.' },
+              { n: '03', title: 'Sécurité & conformité avancée', desc: 'SSO, SLA 99,9 %, conformité UMOA, hébergement souverain en Afrique de l\'Ouest. Pour les organisations à responsabilité élevée.' },
+              { n: '04', title: 'Onboarding & formation sur site', desc: 'Déploiement personnalisé dans vos locaux, formation de votre équipe, account manager dédié pour un accompagnement continu.' },
+              { n: '05', title: 'Intégrations & API sur mesure', desc: 'Connexion avec vos systèmes existants (ERP, CRM, comptabilité). Développement d\'intégrations personnalisées selon vos workflows.' },
+              { n: '06', title: 'À partir de 5 000 membres', desc: 'Tarification sur volume, calculée selon vos besoins réels. Contrat sur mesure avec SLA garanti et support dédié 6j/7.' },
+            ].map((item, i) => (
+              <div key={i} style={{ padding: 28, background: 'rgba(255,255,255,0.05)', borderRadius: 20, border: '1px solid rgba(255,255,255,0.09)', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ fontSize: 11, fontWeight: 800, color: 'rgba(255,255,255,0.25)', letterSpacing: '0.08em', marginBottom: 16 }}>{item.n}</div>
+                <h3 style={{ color: 'white', fontSize: 17, fontWeight: 700, marginBottom: 12, lineHeight: 1.3 }}>{item.title}</h3>
+                <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, margin: 0 }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: 32, padding: '24px 32px', background: 'rgba(212,167,91,0.12)', borderRadius: 16, border: '1px solid rgba(212,167,91,0.3)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
+            <div>
+              <div style={{ color: '#D4A75B', fontWeight: 700, fontSize: 15 }}>Tarification sur mesure</div>
+              <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: 14, marginTop: 4 }}>Devis sous 48h · Démo personnalisée · Sans engagement initial</div>
+            </div>
+            <NavLink to="/contact" style={{ padding: '12px 24px', background: '#D4A75B', color: '#0a0a0a', borderRadius: 999, fontWeight: 700, fontSize: 14, textDecoration: 'none' }}>Contacter l'équipe →</NavLink>
+          </div>
+        </div>
+      </section>
+
       {/* COMMISSIONS */}
       <section style={{ padding: '80px 64px', background: '#F8F8F8' }}>
         <div className="container">

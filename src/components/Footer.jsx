@@ -66,6 +66,7 @@ export default function Footer() {
             <li><NavLink to="/statut">Statut</NavLink></li>
             <li><NavLink to="/benevolat">Bénévolat</NavLink></li>
             <li><NavLink to="/mise-en-relation">Mise en relation</NavLink></li>
+            <li><NavLink to="/presentation">Présentation PDF</NavLink></li>
           </ul>
         </div>
       </div>
