@@ -320,7 +320,7 @@ export default function Accueil() {
               <div style={{ marginTop: 40, display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
                 <div>
                   <div style={{ fontWeight: 700, fontSize: 18 }}>Awa K.</div>
-                  <div style={{ color: '#6B6B6B', fontSize: 15 }}>Présidente — Mutuelle des Femmes d'Abobo</div>
+                  <div style={{ color: '#6B6B6B', fontSize: 15 }}>Présidente — Mutuelle</div>
                 </div>
               </div>
             </Reveal>
