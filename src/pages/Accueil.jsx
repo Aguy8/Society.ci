@@ -59,7 +59,7 @@ export default function Accueil() {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginTop: 56, flexWrap: 'wrap' }}>
                   <div className="avatars">
-                    {['https://images.unsplash.com/photo-1531123897727-8f11ebb3a745?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1489424731084-a3d5bc15a39b?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80'].map(img => (
+                    {['https://res.cloudinary.com/dyqeot2wi/image/upload/v1778357842/6c754c3a-bd83-4032-a2aa-8a60586dfb7e_duq7rr.jpg', 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778357840/Boost_Your_Website_Visibility_with_Expert_SEO_Strategies_vgf7bt.jpg', 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370153/zzzz_hwtnnw.jpg', 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370727/t%C3%A9l%C3%A9chargement_5_vzffpj.jpg', 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370768/STEVE_ONOJA_re85d4.jpg'].map(img => (
                       <div key={img} style={{ backgroundImage: `url(${img})` }} />
                     ))}
                   </div>
@@ -199,7 +199,7 @@ export default function Accueil() {
               <div className="module-card module-grey" style={{ minHeight: 280 }}>
                 <div className="module-tag" style={{ background: 'white' }}>03 — Gestion des entités</div>
                 <h3 style={{ fontSize: 28, marginTop: 12 }}>Trésorerie & coordination.</h3>
-                <p style={{ marginTop: 12, fontSize: 15 }}>Coordination d'événements, collecte et dons en ligne, sous-entités — tout centralisé.</p>
+                <p style={{ marginTop: 12, fontSize: 15 }}>Coordination d'événements, collecte et dons en ligne, sous-entités — tout, centralisé.</p>
                 <div style={{ display: 'flex', gap: 8, marginTop: 16, flexWrap: 'wrap' }}>
                   {['Trésorerie', 'Événements', 'Dons en ligne'].map(t => (
                     <span key={t} style={{ padding: '6px 12px', background: 'white', borderRadius: 999, fontSize: 12, fontWeight: 600 }}>{t}</span>
@@ -225,9 +225,9 @@ export default function Accueil() {
                 <div className="module-tag" style={{ background: 'rgba(255,255,255,0.6)' }}>05 — Espace Leader</div>
                 <h3 style={{ fontSize: 28, marginTop: 12 }}>Votre audience.<br />Votre algorithme.</h3>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 16, padding: '12px 14px', background: 'rgba(255,255,255,0.7)', borderRadius: 14, backdropFilter: 'blur(10px)' }}>
-                  <div style={{ width: 40, height: 40, borderRadius: '50%', backgroundImage: 'url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=800&q=80)', backgroundSize: 'cover', flexShrink: 0 }} />
+                  <div style={{ width: 40, height: 40, borderRadius: '50%', backgroundImage: 'url(https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370100/eeee_omrrkt.jpg)', backgroundSize: 'cover', flexShrink: 0 }} />
                   <div>
-                    <div style={{ fontWeight: 800, fontSize: 14 }}>Aïssatou D.</div>
+                    <div style={{ fontWeight: 800, fontSize: 14 }}>Franceline D.</div>
                     <div style={{ fontSize: 12, color: '#6B6B6B' }}>+ 4 200 fans abonnés</div>
                   </div>
                 </div>
@@ -248,12 +248,12 @@ export default function Accueil() {
           </Reveal>
           <div className="segments-grid">
             {[
-              { n: 'ONG & Associations', img: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80', d: 'Coordonnez vos actions, prouvez votre impact, sécurisez vos bailleurs.', count: '20 000+' },
-              { n: 'Mutuelles & Tontines', img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80', d: 'Automatisez les cotisations, sécurisez les flux, fini les conflits.', count: '15 000+' },
-              { n: 'Alumni & Jeunesse', img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80', d: 'Reconnectez la diaspora, organisez événements et mentorat.', count: '8 000+' },
-              { n: 'Réseaux Pro', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80', d: 'Espaces collaboratifs, contenus premium, mise en relation.', count: '6 000+' },
-              { n: 'Groupes Religieux', img: 'https://images.unsplash.com/photo-1514746676280-63eff6c01a95?auto=format&fit=crop&w=800&q=80', d: 'Gestion des entités, trésorerie, coordination d\'événements et collecte en ligne.', count: '12 000+' },
-              { n: 'Leaders & Influenceurs', img: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80', d: 'Communauté propriétaire, monétisation directe, indépendance.', count: '4 000+' },
+              { n: 'ONG & Associations', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778371275/ede_kwftiu.jpg', d: 'Coordonnez vos actions, prouvez votre impact, collecter des dons.', count: '20 000+' },
+              { n: 'Mutuelles & Tontines', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370127/Les_femmes_noir_vsafxu.jpg', d: 'Automatisez les cotisations, sécurisez les flux, fini les conflits.', count: '15 000+' },
+              { n: 'Alumni & Jeunesse', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370149/You_either_felt_this_or_you_re_about_to_wish_you_did__Full_gallery_now_live_LINK_IN_BIO_%EF%B8%8F_kmzxuz.jpg', d: 'Créer des synergies, organisez événements et mentorat.', count: '8 000+' },
+              { n: 'Réseaux Pro', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370111/eer_afatuz.jpg', d: 'Espaces collaboratifs, contenus premium, mise en relation.', count: '6 000+' },
+              { n: 'Groupes Religieux', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370137/t%C3%A9l%C3%A9chargement_2_evqqgb.jpg', d: 'Gestion des entités, trésorerie, coordination d\'événements et collecte en ligne.', count: '12 000+' },
+              { n: 'Leaders & Influenceurs', img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370156/zeeee_b2qc68.jpg', d: 'Communauté propriétaire, monétisation directe, indépendance.', count: '4 000+' },
             ].map((s, i) => (
               <Reveal key={i} delay={i * 80} direction="scale">
                 <div style={{ borderRadius: 24, overflow: 'hidden', position: 'relative', aspectRatio: '4/5', backgroundImage: `url(${s.img})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -309,7 +309,7 @@ export default function Accueil() {
           <div className="two-col-grid">
             <Reveal direction="left">
               <div style={{ borderRadius: 32, overflow: 'hidden', aspectRatio: '4/5' }}>
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="témoin" />
+                <img src="https://res.cloudinary.com/dyqeot2wi/image/upload/v1778372215/t%C3%A9l%C3%A9chargement_9_mln4bz.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="témoin" />
               </div>
             </Reveal>
             <Reveal direction="right">
