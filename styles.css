@@ -77,7 +77,10 @@ html, body {
   border-bottom: 1px solid var(--so-grey-200);
   background: rgba(255,255,255,0.92);
   backdrop-filter: blur(20px);
-  position: sticky; top: 0; z-index: 50;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  will-change: transform;
 }
 .nav.dark { background: var(--so-ink); border-bottom-color: #1f1f1f; }
 .nav.blue { background: var(--so-blue); border-bottom: none; }

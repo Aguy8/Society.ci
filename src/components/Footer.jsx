@@ -1,10 +1,9 @@
 import { NavLink } from 'react-router-dom'
 
 const SOCIAL = [
-  { label: 'IG', url: 'https://instagram.com' },
-  { label: 'X', url: 'https://x.com' },
-  { label: 'LK', url: 'https://linkedin.com' },
-  { label: 'FB', url: 'https://facebook.com' },
+  { label: 'IG', url: 'https://instagram.com/Society_by_difero' },
+  { label: 'FB', url: 'https://www.facebook.com/Societybydifero' },
+  { label: 'LK', url: 'https://www.linkedin.com/company/121074079/' },
 ]
 
 export default function Footer() {

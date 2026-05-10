@@ -26,30 +26,26 @@ export default function Segment() {
     <div className="page">
       <Nav />
 
-      {/* HERO — immersif plein écran */}
-      <section style={{ position: 'relative', minHeight: 680, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 64px 72px', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: `url(${s.heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center top' }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.88) 100%)' }} />
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 4, background: `linear-gradient(90deg, ${s.color}, transparent)` }} />
-
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <NavLink to="/pour-qui" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.75)', fontSize: 14, fontWeight: 600, textDecoration: 'none', marginBottom: 32 }}>
+      {/* HERO — 2 colonnes minimaliste */}
+      <section style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 640, overflow: 'hidden' }}>
+        {/* Colonne gauche — texte */}
+        <div style={{ background: '#0a0a0a', padding: '80px 64px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative' }}>
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: `linear-gradient(90deg, ${s.color}, transparent)` }} />
+          <NavLink to="/pour-qui" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.5)', fontSize: 13, fontWeight: 600, textDecoration: 'none', marginBottom: 40, letterSpacing: '0.02em' }}>
             ← Tous les segments
           </NavLink>
-          <div style={{ display: 'flex', alignItems: 'flex-end', gap: 40, flexWrap: 'wrap' }}>
-            <div style={{ flex: 1, minWidth: 280 }}>
-              <div style={{ display: 'inline-block', padding: '6px 16px', background: s.color, color: s.color === '#D4A75B' ? '#0a0a0a' : 'white', borderRadius: 999, fontSize: 12, fontWeight: 700, marginBottom: 20 }}>
-                {s.count} en Côte d'Ivoire
-              </div>
-              <h1 style={{ fontSize: 96, lineHeight: 0.88, color: 'white', marginBottom: 24 }}>{s.nom}.</h1>
-              <p style={{ fontSize: 22, color: 'rgba(255,255,255,0.88)', fontStyle: 'italic', lineHeight: 1.45, maxWidth: 580 }}>{s.tagline}</p>
-            </div>
-            <div style={{ display: 'flex', gap: 12, paddingBottom: 4, flexWrap: 'wrap' }}>
-              <NavLink to="/inscription" className="btn btn-gold btn-lg">Démarrer gratuitement</NavLink>
-              <NavLink to="/tarifs" className="btn btn-outline-white btn-lg">Voir les plans</NavLink>
-            </div>
+          <div style={{ display: 'inline-block', padding: '5px 14px', background: s.color, color: s.color === '#D4A75B' ? '#0a0a0a' : 'white', borderRadius: 999, fontSize: 11, fontWeight: 700, marginBottom: 24, alignSelf: 'flex-start', letterSpacing: '0.04em' }}>
+            {s.count} en Côte d'Ivoire
+          </div>
+          <h1 style={{ fontSize: 'clamp(48px, 5vw, 80px)', lineHeight: 0.9, color: 'white', marginBottom: 28 }}>{s.nom}.</h1>
+          <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.75)', lineHeight: 1.55, maxWidth: 460, marginBottom: 40 }}>{s.tagline}</p>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            <NavLink to="/inscription" className="btn btn-gold btn-lg">Démarrer gratuitement</NavLink>
+            <NavLink to="/tarifs" className="btn btn-outline-white btn-lg">Voir les plans</NavLink>
           </div>
         </div>
+        {/* Colonne droite — image */}
+        <div style={{ backgroundImage: `url(${s.heroImg})`, backgroundSize: 'cover', backgroundPosition: 'center top', minHeight: 480 }} />
       </section>
 
       {/* STATS BAR */}

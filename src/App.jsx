@@ -39,11 +39,13 @@ import FeatureEvenements from './pages/features/Evenements.jsx'
 import FeatureCommunication from './pages/features/Communication.jsx'
 import FeatureImpact from './pages/features/Impact.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
+import FloatingNav from './components/FloatingNav.jsx'
 
 export default function App() {
   return (
     <HashRouter>
       <ScrollToTop />
+      <FloatingNav />
       <Routes>
         <Route path="/" element={<Accueil />} />
         <Route path="/fonctionnalites" element={<Fonctionnalites />} />

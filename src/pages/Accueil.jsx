@@ -1,28 +1,9 @@
-import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import Nav from '../components/Nav.jsx'
 import Footer from '../components/Footer.jsx'
 import Marquee from '../components/Marquee.jsx'
 import Icon from '../components/Icon.jsx'
 import Reveal from '../components/Reveal.jsx'
-
-function ScrollToTopBtn() {
-  const [visible, setVisible] = useState(false)
-  useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 400)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-  if (!visible) return null
-  return (
-    <button
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      style={{ position: 'fixed', bottom: 32, right: 32, width: 48, height: 48, borderRadius: '50%', background: '#0E47AB', border: 'none', cursor: 'pointer', display: 'grid', placeItems: 'center', boxShadow: '0 8px 24px rgba(14,71,171,0.4)', zIndex: 200, transition: 'transform 0.2s' }}
-      aria-label="Remonter en haut">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
-    </button>
-  )
-}
 
 export default function Accueil() {
   return (
@@ -248,22 +229,25 @@ export default function Accueil() {
           </Reveal>
           <div className="segments-grid">
             {[
-              { n: 'ONG & Associations', img: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80', d: 'Coordonnez vos actions, prouvez votre impact, sécurisez vos bailleurs.', count: '20 000+' },
-              { n: 'Mutuelles & Tontines', img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80', d: 'Automatisez les cotisations, sécurisez les flux, fini les conflits.', count: '15 000+' },
-              { n: 'Alumni & Jeunesse', img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80', d: 'Reconnectez la diaspora, organisez événements et mentorat.', count: '8 000+' },
-              { n: 'Réseaux Pro', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80', d: 'Espaces collaboratifs, contenus premium, mise en relation.', count: '6 000+' },
-              { n: 'Groupes Religieux', img: 'https://images.unsplash.com/photo-1514746676280-63eff6c01a95?auto=format&fit=crop&w=800&q=80', d: 'Gestion des entités, trésorerie, coordination d\'événements et collecte en ligne.', count: '12 000+' },
-              { n: 'Leaders & Influenceurs', img: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80', d: 'Communauté propriétaire, monétisation directe, indépendance.', count: '4 000+' },
+              { n: 'ONG & Associations', slug: 'ong-associations', img: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80', d: 'Coordonnez vos actions, prouvez votre impact, sécurisez vos bailleurs.', count: '20 000+' },
+              { n: 'Mutuelles & Tontines', slug: 'mutuelles-tontines', img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80', d: 'Automatisez les cotisations, sécurisez les flux, fini les conflits.', count: '15 000+' },
+              { n: 'Alumni & Jeunesse', slug: 'alumni-jeunesse', img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80', d: 'Reconnectez la diaspora, organisez événements et mentorat.', count: '8 000+' },
+              { n: 'Réseaux Pro', slug: 'reseaux-professionnels', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80', d: 'Espaces collaboratifs, contenus premium, mise en relation.', count: '6 000+' },
+              { n: 'Groupes Religieux', slug: 'groupes-religieux', img: 'https://images.unsplash.com/photo-1514746676280-63eff6c01a95?auto=format&fit=crop&w=800&q=80', d: 'Gestion des entités, trésorerie, coordination d\'événements et collecte en ligne.', count: '12 000+' },
+              { n: 'Leaders & Influenceurs', slug: 'leaders-influenceurs', img: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80', d: 'Communauté propriétaire, monétisation directe, indépendance.', count: '4 000+' },
             ].map((s, i) => (
               <Reveal key={i} delay={i * 80} direction="scale">
-                <div style={{ borderRadius: 24, overflow: 'hidden', position: 'relative', aspectRatio: '4/5', backgroundImage: `url(${s.img})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                <NavLink to={`/pour-qui/${s.slug}`} style={{ display: 'block', textDecoration: 'none', borderRadius: 24, overflow: 'hidden', position: 'relative', aspectRatio: '4/5', backgroundImage: `url(${s.img})`, backgroundSize: 'cover', backgroundPosition: 'center', transition: 'transform 0.2s' }}
+                  onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.02)'}
+                  onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.85) 100%)' }} />
-                  <div style={{ position: 'absolute', top: 20, right: 20, padding: '6px 12px', background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)', borderRadius: 999, fontSize: 12, fontWeight: 600 }}>{s.count} en CI</div>
+                  <div style={{ position: 'absolute', top: 20, right: 20, padding: '6px 12px', background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)', borderRadius: 999, fontSize: 12, fontWeight: 600, color: 'white' }}>{s.count} en CI</div>
                   <div style={{ position: 'absolute', bottom: 28, left: 28, right: 28 }}>
                     <h3 style={{ color: 'white', fontSize: 28, lineHeight: 1 }}>{s.n}</h3>
                     <p style={{ color: 'rgba(255,255,255,0.85)', marginTop: 10, fontSize: 14 }}>{s.d}</p>
+                    <div style={{ marginTop: 16, display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.9)' }}>Découvrir →</div>
                   </div>
-                </div>
+                </NavLink>
               </Reveal>
             ))}
           </div>
@@ -363,7 +347,6 @@ export default function Accueil() {
       </section>
 
       <Footer />
-      <ScrollToTopBtn />
     </div>
   )
 }

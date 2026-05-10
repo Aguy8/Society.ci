@@ -115,8 +115,11 @@ html, body {
   backdrop-filter: blur(20px);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 999;
+  will-change: transform;
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
 }
+.nav--hidden { transform: translateY(-100%); }
 .nav.dark { background: var(--so-ink); border-bottom-color: #1f1f1f; }
 .nav.blue { background: var(--so-blue); border-bottom: none; }
 
@@ -162,7 +165,7 @@ html, body {
   flex-direction: column;
   gap: 8px;
   border-bottom: 1px solid var(--so-grey-200);
-  z-index: 99;
+  z-index: 998;
   box-shadow: 0 20px 40px rgba(0,0,0,0.08);
   max-height: calc(100vh - 80px);
   overflow-y: auto;
@@ -728,3 +731,8 @@ html, body {
 }
 .snap-x::-webkit-scrollbar { display: none; }
 .snap-item { scroll-snap-align: start; flex-shrink: 0; }
+
+@keyframes floatNavIn {
+  from { opacity: 0; transform: scale(0.85) translateY(8px); }
+  to   { opacity: 1; transform: scale(1)   translateY(0);    }
+}

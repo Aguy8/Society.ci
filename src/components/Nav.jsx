@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import Icon from './Icon.jsx'
 
@@ -52,7 +52,23 @@ export default function Nav({ variant = 'light' }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [founderOpen, setFounderOpen] = useState(false)
   const [discoverOpen, setDiscoverOpen] = useState(false)
+  const [navHidden, setNavHidden] = useState(false)
+  const lastY = useRef(0)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY
+      if (y > 80) {
+        setNavHidden(y > lastY.current)
+      } else {
+        setNavHidden(false)
+      }
+      lastY.current = y
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   const cls = variant === 'dark' ? 'nav dark' : variant === 'blue' ? 'nav blue' : 'nav'
   const logoColor = variant === 'blue' ? '#D4A75B' : '#0E47AB'
@@ -60,7 +76,7 @@ export default function Nav({ variant = 'light' }) {
 
   return (
     <>
-      <nav className={cls}>
+      <nav className={`${cls}${navHidden ? ' nav--hidden' : ''}`}>
         <a onClick={() => navigate('/')} className="nav-logo" style={{ cursor: 'pointer' }}>
           Society<span style={{ color: logoColor }}>.</span>
         </a>
