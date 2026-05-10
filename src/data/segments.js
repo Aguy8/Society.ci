@@ -69,7 +69,7 @@ export const SEGMENTS = [
     slug: 'reseaux-professionnels',
     nom: 'Réseaux Professionnels',
     img: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778370111/eer_afatuz.jpg',
-    heroImg: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778376288/UNCF_and_8B_Education_Investments_Announce_Strategic_Partnership_to_Strengthen_Ties_Between_HBCUs_and_Africa_-_UNCF_jqwv8a.jpg',
+    heroImg: 'https://res.cloudinary.com/dyqeot2wi/image/upload/v1778378864/UNCF_and_8B_Education_Investments_Announce_Strategic_Partnership_to_Strengthen_Ties_Between_HBCUs_and_Africa_-_UNCF_ahww9q.jpg',
     color: '#0E47AB',
     count: '6 000+',
     ex: 'Jacobleu, SangCoolheur, CCOCI, Clubs d\'affaires, Réseaux sectoriels',
